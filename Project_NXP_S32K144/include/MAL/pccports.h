@@ -4,7 +4,7 @@
 /*                        OBJECT SPECIFICATION                                */
 /*============================================================================*/
 /*!
- * $Source: filename.c $
+ * $Source: filename.x $
  * $Revision: version $
  * $Author: author $
  * $Date: date $
@@ -39,56 +39,31 @@
 /*                               OBJECT HISTORY                               */
 /*============================================================================*/
 /*
- * $Log: filename.c  $
+ * $Log: filename.h  $
   ============================================================================*/
+//#ifndef FILENAME_H
+//#define FILENAME_H
 
 /* Includes */
 /*============================================================================*/
+#include "S32K144.h"
+
+/* Defines */
+/*============================================================================*/
+/* Enable PCC PORTS */
 
 
-
-/* Constants and types  */
+/* Constants and types */
 /*============================================================================*/
 
 
-
-/* Variables */
+/* Exported Variables */
 /*============================================================================*/
 
 
-
-/* Private functions prototypes */
+/* Exported functions prototypes */
 /*============================================================================*/
 
+void config_PCC_PORT(int configPCC);
 
-
-/* Inline functions */
-/*============================================================================*/
-
-
-
-
-/* Private functions */
-/*============================================================================*/
-
-/** Check if action is allowed by overload protection.
- To avoid overheating of the door locking motors and hardware failure
- the software shall limit the number of activations in a short period.
- This function checks if the limitation algorithm allows or not
- a certain activation of the motors.
- \returns TRUE if the activation is allowed, FALSE if not
-*/
-uint8 algreqg_olp_CheckOLPAllow(uint8 ReqestedAction_u8,       /**< the requested action to be performed (e.g. unlock) */
-                                uint16 RequestedComponent_u16  /**< the mask of the doors which motors to be activated (e.g. front doors) */
-                                )
-{
-	return 0;
-}
-
-
-/* Exported functions */
-/*============================================================================*/
-
-
-
- /* Notice: the file ends with a blank new line to avoid compiler warnings */
+//#endif  /* Notice: the file ends with a blank new line to avoid compiler warnings */

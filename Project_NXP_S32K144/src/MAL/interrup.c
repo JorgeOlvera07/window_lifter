@@ -44,8 +44,11 @@
 
 /* Includes */
 /*============================================================================*/
+#include "MAL/interrup.h"
 
-
+/* Defines */
+/*============================================================================*/
+#define TIMER0 LPIT0
 
 /* Constants and types  */
 /*============================================================================*/
@@ -66,28 +69,36 @@
 /*============================================================================*/
 
 
-
-
 /* Private functions */
 /*============================================================================*/
-
-/** Check if action is allowed by overload protection.
- To avoid overheating of the door locking motors and hardware failure
- the software shall limit the number of activations in a short period.
- This function checks if the limitation algorithm allows or not
- a certain activation of the motors.
- \returns TRUE if the activation is allowed, FALSE if not
-*/
-uint8 algreqg_olp_CheckOLPAllow(uint8 ReqestedAction_u8,       /**< the requested action to be performed (e.g. unlock) */
-                                uint16 RequestedComponent_u16  /**< the mask of the doors which motors to be activated (e.g. front doors) */
-                                )
-{
-	return 0;
-}
 
 
 /* Exported functions */
 /*============================================================================*/
+
+void enableClocks(PCC_Type *pPCC, int clocksrc, int enablelpit0){
+	pPCC->PCCn[PCC_LPIT_INDEX] = PCC_PCCn_PCS(clocksrc); /* Clock Src = 6 (SPLL2_DIV2_CLK)*/
+	pPCC->PCCn[PCC_LPIT_INDEX] |= enablelpit0; /* Enable clk to LPIT0 regs */
+
+}
+
+void configureTimerChanel(LPIT_Type *pLPIT, int chanel){
+
+
+	pLPIT->MCR = chanel;
+	LPIT0->MIER = chanel;
+}
+
+void ch0TimeoutPeriodClocks(LPIT_Type *pLPIT, int period){
+	pLPIT->TMR[0].TVAL = period;//1 ms = 40000
+}
+void enableTimer(LPIT_Type *pLPIT, int period){
+	pLPIT->TMR[0].TVAL = period;
+	pLPIT->TMR[0].TCTRL = 0x00000001;
+}
+void disableTimer(LPIT_Type *pLPIT){
+	pLPIT->TMR[0].TCTRL = 0x00000000;
+}
 
 
 

@@ -41,10 +41,14 @@
 /*
  * $Log: filename.h  $
   ============================================================================*/
-#ifndef FILENAME_H
-#define FILENAME_H
+//#ifndef FILENAME_H
+//#define FILENAME_H
 
 /* Includes */
+/*============================================================================*/
+
+#include "S32K144.h"
+/* Defines */
 /*============================================================================*/
 
 
@@ -59,4 +63,10 @@
 /* Exported functions prototypes */
 /*============================================================================*/
 
-#endif  /* Notice: the file ends with a blank new line to avoid compiler warnings */
+
+void SOSC_init_8MHz(void);
+void SPLL_init_160MHz(void);
+void NormalRUNmode_80MHz (void);
+void WDOG_disable (void);
+
+//#endif  /* Notice: the file ends with a blank new line to avoid compiler warnings */

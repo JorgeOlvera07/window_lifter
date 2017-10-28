@@ -41,12 +41,15 @@
 /*
  * $Log: filename.h  $
   ============================================================================*/
-#ifndef FILENAME_H
-#define FILENAME_H
+//#ifndef FILENAME_H
+//#define FILENAME_H
 
 /* Includes */
 /*============================================================================*/
 
+#include "S32K144.h"
+/* Defines */
+/*============================================================================*/
 
 /* Constants and types */
 /*============================================================================*/
@@ -59,4 +62,5 @@
 /* Exported functions prototypes */
 /*============================================================================*/
 
-#endif  /* Notice: the file ends with a blank new line to avoid compiler warnings */
+void config_watchdog(WDOG_Type * pWD, int CNT, int TOVAL, int CS );
+//#endif  /* Notice: the file ends with a blank new line to avoid compiler warnings */

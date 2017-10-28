@@ -4,8 +4,8 @@
 /*                        OBJECT SPECIFICATION                                */
 /*============================================================================*/
 /*!
- * $Source: filename.x $
- * $Revision: version $
+ * $Source: interrup.h $
+ * $Revision: version 1 $
  * $Author: author $
  * $Date: date $
  */
@@ -41,12 +41,12 @@
 /*
  * $Log: filename.h  $
   ============================================================================*/
-#ifndef FILENAME_H
-#define FILENAME_H
+//#ifndef FILENAME_H
+//#define FILENAME_H
 
 /* Includes */
 /*============================================================================*/
-
+#include "MAL/gpio.h"
 
 /* Constants and types */
 /*============================================================================*/
@@ -58,5 +58,12 @@
 
 /* Exported functions prototypes */
 /*============================================================================*/
+void enableClocks(PCC_Type *pPCC, int clocksrc, int enablelpit0);
+void configureTimerChanel(LPIT_Type *pLPIT, int chanel);
+void ch0TimeoutPeriodClocks(LPIT_Type *pLPIT, int period);
+void enableTimer(LPIT_Type *pLPIT, int period);
+void disableTimer(LPIT_Type *pLPIT);
 
-#endif  /* Notice: the file ends with a blank new line to avoid compiler warnings */
+
+
+//#endif  /* Notice: the file ends with a blank new line to avoid compiler warnings */
