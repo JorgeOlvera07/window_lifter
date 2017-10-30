@@ -4,8 +4,8 @@
 /*                        OBJECT SPECIFICATION                                */
 /*============================================================================*/
 /*!
- * $Source: interrup.h $
- * $Revision: version 1 $
+ * $Source: filename.x $
+ * $Revision: version $
  * $Author: author $
  * $Date: date $
  */
@@ -39,15 +39,16 @@
 /*                               OBJECT HISTORY                               */
 /*============================================================================*/
 /*
- * $Log: interrup.h  $
+ * $Log: filename.h  $
   ============================================================================*/
-#ifndef INTERRUP_H
-#define INTERRUP_H
+//#ifndef FILENAME_H
+//#define FILENAME_H
 
 /* Includes */
 /*============================================================================*/
-#include "S32K144.h"
-#include "MAL/namingconventions.h"
+//#include "S32K144.h" /* include peripheral declarations S32K144 */
+//#include "MAL/gpio.h"
+#include "HAL/windowleds.h"
 
 /* Constants and types */
 /*============================================================================*/
@@ -59,13 +60,8 @@
 
 /* Exported functions prototypes */
 /*============================================================================*/
-void interrup_void_enableClocks(S_PCC_Type *pPCC, T_UWORD clocksrc, T_UWORD enablelpit0);
-void interrup_void_configureTimerChanel(S_LPIT_Type *pLPIT, T_UWORD chanel);
-void interrup_void_ch0TimeoutPeriodClocks(S_LPIT_Type *pLPIT, T_UWORD period);
-void interrup_void_enableTimer(S_LPIT_Type *pLPIT, T_UWORD period);
-void interrup_void_disableTimer(S_LPIT_Type *pLPIT);
-void interrup_void_clearFlag_lpitCh0(S_LPIT_Type  *pLPIT,T_UWORD mask);
+void wc_void_ControlWindowUp (T_UBYTE * porcent);
+void wc_void_ControlWindowDown (T_UBYTE * porcent);
 
 
-
-#endif  /* Notice: the file ends with a blank new line to avoid compiler warnings */
+//#endif  /* Notice: the file ends with a blank new line to avoid compiler warnings */

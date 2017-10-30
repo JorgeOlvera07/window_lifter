@@ -4,8 +4,8 @@
 /*                        OBJECT SPECIFICATION                                */
 /*============================================================================*/
 /*!
- * $Source: interrup.h $
- * $Revision: version 1 $
+ * $Source: filename.x $
+ * $Revision: version $
  * $Author: author $
  * $Date: date $
  */
@@ -39,15 +39,16 @@
 /*                               OBJECT HISTORY                               */
 /*============================================================================*/
 /*
- * $Log: interrup.h  $
+ * $Log: enablenvic.h  $
   ============================================================================*/
-#ifndef INTERRUP_H
-#define INTERRUP_H
+#ifndef ENABLENVIC_H
+#define ENABLENVIC_H
 
 /* Includes */
 /*============================================================================*/
-#include "S32K144.h"
-#include "MAL/namingconventions.h"
+#include "MAL/nvicinit.h"
+/* Defines */
+/*============================================================================*/
 
 /* Constants and types */
 /*============================================================================*/
@@ -59,13 +60,8 @@
 
 /* Exported functions prototypes */
 /*============================================================================*/
-void interrup_void_enableClocks(S_PCC_Type *pPCC, T_UWORD clocksrc, T_UWORD enablelpit0);
-void interrup_void_configureTimerChanel(S_LPIT_Type *pLPIT, T_UWORD chanel);
-void interrup_void_ch0TimeoutPeriodClocks(S_LPIT_Type *pLPIT, T_UWORD period);
-void interrup_void_enableTimer(S_LPIT_Type *pLPIT, T_UWORD period);
-void interrup_void_disableTimer(S_LPIT_Type *pLPIT);
-void interrup_void_clearFlag_lpitCh0(S_LPIT_Type  *pLPIT,T_UWORD mask);
 
-
+void enablenvic_void_NVIC_init_IRQs(void);
 
 #endif  /* Notice: the file ends with a blank new line to avoid compiler warnings */
+

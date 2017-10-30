@@ -39,10 +39,10 @@
 /*                               OBJECT HISTORY                               */
 /*============================================================================*/
 /*
- * $Log: filename.h  $
+ * $Log: buttons.h  $
   ============================================================================*/
-//#ifndef FILENAME_H
-//#define FILENAME_H
+#ifndef BUTTONS_H
+#define BUTTONS_H
 
 /* Includes */
 /*============================================================================*/
@@ -65,8 +65,9 @@
 
 /* Exported functions prototypes */
 /*============================================================================*/
-void config_Buttons_Port(GPIO_Type* PT, PORT_Type * PORT, int numbit, int mux);
-unsigned char get_Button_Value(GPIO_Type* PT,int numbit);
+void buttons_void_config_Buttons_Port(S_GPIO_Type* PT, S_PORT_Type * PORT, T_UWORD numbit, T_UWORD mux);
+T_UBYTE buttons_T_UBYTE_get_Button_Value(S_GPIO_Type* PT,T_UWORD numbit);
+void buttons_void_clearFlag_antipinch(S_PORT_Type * pPORT,T_UWORD mask);
 
 
-//#endif  /* Notice: the file ends with a blank new line to avoid compiler warnings */
+#endif  /* Notice: the file ends with a blank new line to avoid compiler warnings */

@@ -39,14 +39,12 @@
 /*                               OBJECT HISTORY                               */
 /*============================================================================*/
 /*
- * $Log: filename.c  $
+ * $Log: windowcontrol.c  $
   ============================================================================*/
 
 /* Includes */
 /*============================================================================*/
-#include "HAL/windowleds.h"
-//#include "MAL/gpio.h"
-
+#include "APP/windowcontrol.h"
 
 
 /* Constants and types  */
@@ -76,20 +74,58 @@
 
 /* Exported functions */
 /*============================================================================*/
-void windowleds_void_config_Led_Port(S_GPIO_Type* PT, S_PORT_Type * PORT, T_UWORD numbit, T_UWORD mux){
+void wc_void_ControlWindowUp (T_UBYTE * percent){
 
-	gpio_void_config_Pin_Out(PT,numbit);
-	gpio_void_config_Pin_Mux(PORT,numbit, mux);
 
+	switch ((*percent)){
+
+		case 1: windowleds_void_openBit_Window(WINDOW_PTC,WINDOW_LED1); /* clear Output on port D16 (on) */   break;
+		case 2: windowleds_void_openBit_Window(WINDOW_PTB,WINDOW_LED2); /* clear Output on port D16 (on) */   break;
+		case 3: windowleds_void_openBit_Window(WINDOW_PTB,WINDOW_LED3); /* clear Output on port D16 (on) */   break;
+		case 4: windowleds_void_openBit_Window(WINDOW_PTB,WINDOW_LED4); /* clear Output on port D16 (on) */   break;
+		case 5: windowleds_void_openBit_Window(WINDOW_PTB,WINDOW_LED5); /* clear Output on port D16 (on) */   break;
+		case 6: windowleds_void_openBit_Window(WINDOW_PTC,WINDOW_LED6); /* clear Output on port D16 (on) */   break;
+		case 7: windowleds_void_openBit_Window(WINDOW_PTE,WINDOW_LED7); /* clear Output on port D16 (on) */  break;
+		case 8: windowleds_void_openBit_Window(WINDOW_PTE,WINDOW_LED8); /* clear Output on port D16 (on) */  break;
+		case 9: windowleds_void_openBit_Window(WINDOW_PTE,WINDOW_LED9); /* clear Output on port D16 (on) */  break;
+		case 10: windowleds_void_openBit_Window(WINDOW_PTE,WINDOW_LED10); /* clear Output on port D16 (on) */  break;
+		default:
+				if(*percent>10){
+					*percent=10;
+				}
+				if(*percent<1){
+					*percent=1;
+				}
+		break;
+	}
 }
 
-void windowleds_void_openBit_Window(S_GPIO_Type* PT, T_UWORD numbit){
-	gpio_void_io_Set_Pin(PT,numbit);
+
+void wc_void_ControlWindowDown (T_UBYTE * percent){
+
+	switch ((*percent)){
+
+		case 1: windowleds_void_closeBit_Window(WINDOW_PTC,WINDOW_LED1); /* set Output on port D16 (off) */   break;
+		case 2: windowleds_void_closeBit_Window(WINDOW_PTB,WINDOW_LED2); /* set Output on port D16 (off) */   break;
+		case 3: windowleds_void_closeBit_Window(WINDOW_PTB,WINDOW_LED3); /* set Output on port D16 (off) */   break;
+		case 4: windowleds_void_closeBit_Window(WINDOW_PTB,WINDOW_LED4); /* set Output on port D16 (off) */   break;
+		case 5: windowleds_void_closeBit_Window(WINDOW_PTB,WINDOW_LED5); /* set Output on port D16 (off) */   break;
+		case 6: windowleds_void_closeBit_Window(WINDOW_PTC,WINDOW_LED6); /* set Output on port D16 (off) */   break;
+		case 7: windowleds_void_closeBit_Window(WINDOW_PTE,WINDOW_LED7); /* set Output on port D16 (off) */  break;
+		case 8: windowleds_void_closeBit_Window(WINDOW_PTE,WINDOW_LED8); /* set Output on port D16 (off) */  break;
+		case 9: windowleds_void_closeBit_Window(WINDOW_PTE,WINDOW_LED9); /* set Output on port D16 (off) */  break;
+		case 10: windowleds_void_closeBit_Window(WINDOW_PTE,WINDOW_LED10); /* set Output on port D16 (off) */  break;
+		default:
+			if(*percent>10){
+				*percent=10;
+			}
+			if(*percent<1){
+				*percent=1;
+			}
+		break;
+	}
 }
 
-void windowleds_void_closeBit_Window(S_GPIO_Type* PT, T_UWORD numbit){
-	gpio_void_io_Clear_Pin(PT,numbit);
-}
 
 
  /* Notice: the file ends with a blank new line to avoid compiler warnings */

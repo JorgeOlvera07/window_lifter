@@ -39,10 +39,10 @@
 /*                               OBJECT HISTORY                               */
 /*============================================================================*/
 /*
- * $Log: filename.h  $
+ * $Log: enableports.h  $
   ============================================================================*/
-//#ifndef FILENAME_H
-//#define FILENAME_H
+#ifndef ENABLEPORTS_H
+#define ENABLEPORTS_H
 
 /* Includes */
 /*============================================================================*/
@@ -69,7 +69,7 @@
 /*============================================================================*/
 
 
-void enable_PCC_Port(int configPCC);
+void enableports_void_enable_PCC_Port(T_UWORD configPCC);
 
-//#endif  /* Notice: the file ends with a blank new line to avoid compiler warnings */
+#endif  /* Notice: the file ends with a blank new line to avoid compiler warnings */
 

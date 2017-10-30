@@ -39,10 +39,10 @@
 /*                               OBJECT HISTORY                               */
 /*============================================================================*/
 /*
- * $Log: filename.h  $
+ * $Log: timer.h  $
   ============================================================================*/
-//#ifndef FILENAME_H
-//#define FILENAME_H
+#ifndef TIMER_H
+#define TIMER_H
 
 /* Includes */
 /*============================================================================*/
@@ -58,9 +58,10 @@
 
 /* Exported functions prototypes */
 /*============================================================================*/
-void initLPIT0_Timer(PCC_Type *pPCC, LPIT_Type *pLPIT,int clocksrc, int enablelpit0, int chanel);
-void configTime(LPIT_Type *pLPIT, int period);
-void enable_Timer(LPIT_Type *pLPIT, int period);
-void disable_Timer(LPIT_Type *pLPIT);
+void timer_void_initLPIT0_Timer(S_PCC_Type *pPCC, S_LPIT_Type *pLPIT,T_UWORD clocksrc, T_UWORD enablelpit0, T_UWORD chanel);
+void timer_void_configTime(S_LPIT_Type *pLPIT, T_UWORD period);
+void timer_void_enable_Timer(S_LPIT_Type *pLPIT, T_UWORD period);
+void timer_void_disable_Timer(S_LPIT_Type *pLPIT);
+void timer_void_clearFlag_lpitCh0(S_LPIT_Type *pLPIT, T_UWORD mask);
 
-//#endif  /* Notice: the file ends with a blank new line to avoid compiler warnings */
+#endif  /* Notice: the file ends with a blank new line to avoid compiler warnings */

@@ -39,10 +39,10 @@
 /*                               OBJECT HISTORY                               */
 /*============================================================================*/
 /*
- * $Log: filename.h  $
+ * $Log: indicators.h  $
   ============================================================================*/
-//#ifndef FILENAME_H
-//#define FILENAME_H
+#ifndef INDICATORS_H
+#define INDICATORS_H
 
 /* Includes */
 /*============================================================================*/
@@ -65,7 +65,7 @@
 
 /* Exported functions prototypes */
 /*============================================================================*/
-void config_indicator(GPIO_Type* PT, PORT_Type * PORT, int numbit, int mux);
-void set_indicator(GPIO_Type* PT, int numbit);
-void clear_indicator(GPIO_Type* PT, int numbit);
-//#endif  /* Notice: the file ends with a blank new line to avoid compiler warnings */
+void indicator_void_config_indicator(S_GPIO_Type* PT, S_PORT_Type * PORT, T_UWORD numbit, T_UWORD mux);
+void indicator_void_set_indicator(S_GPIO_Type* PT, T_UWORD numbit);
+void indicator_void_clear_indicator(S_GPIO_Type* PT, T_UWORD numbit);
+#endif  /* Notice: the file ends with a blank new line to avoid compiler warnings */

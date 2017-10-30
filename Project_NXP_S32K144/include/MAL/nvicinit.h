@@ -39,15 +39,16 @@
 /*                               OBJECT HISTORY                               */
 /*============================================================================*/
 /*
- * $Log: filename.h  $
+ * $Log: nvicinit.h  $
   ============================================================================*/
-//#ifndef FILENAME_H
-//#define FILENAME_H
+#ifndef NVICINIT_H
+#define NVICINIT_H
 
 /* Includes */
 /*============================================================================*/
 
 #include "S32K144.h"
+#include "MAL/namingconventions.h"
 /* Defines */
 /*============================================================================*/
 
@@ -64,6 +65,6 @@
 /*============================================================================*/
 
 
-void NVIC_init_IRQs (void);
+void nvicinit_void_NVIC_init_IRQs (void);
 
-//#endif  /* Notice: the file ends with a blank new line to avoid compiler warnings */
+#endif  /* Notice: the file ends with a blank new line to avoid compiler warnings */

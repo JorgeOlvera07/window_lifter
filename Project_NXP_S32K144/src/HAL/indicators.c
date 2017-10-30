@@ -76,18 +76,18 @@
 
 /* Exported functions */
 /*============================================================================*/
-void config_indicator(GPIO_Type* PT, PORT_Type * PORT, int numbit, int mux){
+void indicator_void_config_indicator(S_GPIO_Type* PT, S_PORT_Type * PORT, T_UWORD numbit, T_UWORD mux){
 
-	config_Pin_Out(PT,numbit);
-	config_Pin_Mux(PORT,numbit, mux);
+	gpio_void_config_Pin_Out(PT,numbit);
+	gpio_void_config_Pin_Mux(PORT,numbit, mux);
 }
 
-void set_indicator(GPIO_Type* PT, int numbit){
-	io_Set_Pin(PT,numbit);
+void indicator_void_set_indicator(S_GPIO_Type* PT, T_UWORD numbit){
+	gpio_void_io_Set_Pin(PT,numbit);
 }
 
-void clear_indicator(GPIO_Type* PT, int numbit){
-	io_Clear_Pin(PT,numbit);
+void indicator_void_clear_indicator(S_GPIO_Type* PT, T_UWORD numbit){
+	gpio_void_io_Clear_Pin(PT,numbit);
 }
 
 

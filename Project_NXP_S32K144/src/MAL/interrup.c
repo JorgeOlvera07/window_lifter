@@ -39,7 +39,7 @@
 /*                               OBJECT HISTORY                               */
 /*============================================================================*/
 /*
- * $Log: filename.c  $
+ * $Log: interrup.c  $
   ============================================================================*/
 
 /* Includes */
@@ -76,28 +76,32 @@
 /* Exported functions */
 /*============================================================================*/
 
-void enableClocks(PCC_Type *pPCC, int clocksrc, int enablelpit0){
+void interrup_void_enableClocks(S_PCC_Type *pPCC, T_UWORD clocksrc, T_UWORD enablelpit0){
 	pPCC->PCCn[PCC_LPIT_INDEX] = PCC_PCCn_PCS(clocksrc); /* Clock Src = 6 (SPLL2_DIV2_CLK)*/
 	pPCC->PCCn[PCC_LPIT_INDEX] |= enablelpit0; /* Enable clk to LPIT0 regs */
 
 }
 
-void configureTimerChanel(LPIT_Type *pLPIT, int chanel){
+void interrup_void_configureTimerChanel(S_LPIT_Type *pLPIT, T_UWORD chanel){
 
 
 	pLPIT->MCR = chanel;
 	LPIT0->MIER = chanel;
 }
 
-void ch0TimeoutPeriodClocks(LPIT_Type *pLPIT, int period){
+void interrup_void_ch0TimeoutPeriodClocks(S_LPIT_Type *pLPIT, T_UWORD period){
 	pLPIT->TMR[0].TVAL = period;//1 ms = 40000
 }
-void enableTimer(LPIT_Type *pLPIT, int period){
+void interrup_void_enableTimer(S_LPIT_Type *pLPIT, T_UWORD period){
 	pLPIT->TMR[0].TVAL = period;
 	pLPIT->TMR[0].TCTRL = 0x00000001;
 }
-void disableTimer(LPIT_Type *pLPIT){
+void interrup_void_disableTimer(S_LPIT_Type *pLPIT){
 	pLPIT->TMR[0].TCTRL = 0x00000000;
+}
+
+void interrup_void_clearFlag_lpitCh0(S_LPIT_Type *pLPIT,T_UWORD mask){
+	pLPIT->MSR |= mask; /* LPIT_MSR_TIF0_MASK Clear LPIT0 timer flag 0 */
 }
 
 

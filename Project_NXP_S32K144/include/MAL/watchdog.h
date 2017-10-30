@@ -39,15 +39,15 @@
 /*                               OBJECT HISTORY                               */
 /*============================================================================*/
 /*
- * $Log: filename.h  $
+ * $Log: watchdog.h  $
   ============================================================================*/
-//#ifndef FILENAME_H
-//#define FILENAME_H
+#ifndef WATCHDOG_H
+#define WATCHDOG_H
 
 /* Includes */
 /*============================================================================*/
-
 #include "S32K144.h"
+#include "MAL/namingconventions.h"
 /* Defines */
 /*============================================================================*/
 
@@ -62,5 +62,5 @@
 /* Exported functions prototypes */
 /*============================================================================*/
 
-void config_watchdog(WDOG_Type * pWD, int CNT, int TOVAL, int CS );
-//#endif  /* Notice: the file ends with a blank new line to avoid compiler warnings */
+void watchdog_void_config_watchdog(S_WDOG_Type * pWD, int CNT, int TOVAL, int CS );
+#endif  /* Notice: the file ends with a blank new line to avoid compiler warnings */

@@ -4,8 +4,8 @@
 /*                        OBJECT SPECIFICATION                                */
 /*============================================================================*/
 /*!
- * $Source: interrup.h $
- * $Revision: version 1 $
+ * $Source: filename.x $
+ * $Revision: version $
  * $Author: author $
  * $Date: date $
  */
@@ -39,15 +39,19 @@
 /*                               OBJECT HISTORY                               */
 /*============================================================================*/
 /*
- * $Log: interrup.h  $
+ * $Log: clocks.h  $
   ============================================================================*/
-#ifndef INTERRUP_H
-#define INTERRUP_H
+#ifndef CLOCKS_H
+#define CLOCKS_H
 
 /* Includes */
 /*============================================================================*/
+
 #include "S32K144.h"
 #include "MAL/namingconventions.h"
+/* Defines */
+/*============================================================================*/
+
 
 /* Constants and types */
 /*============================================================================*/
@@ -59,13 +63,11 @@
 
 /* Exported functions prototypes */
 /*============================================================================*/
-void interrup_void_enableClocks(S_PCC_Type *pPCC, T_UWORD clocksrc, T_UWORD enablelpit0);
-void interrup_void_configureTimerChanel(S_LPIT_Type *pLPIT, T_UWORD chanel);
-void interrup_void_ch0TimeoutPeriodClocks(S_LPIT_Type *pLPIT, T_UWORD period);
-void interrup_void_enableTimer(S_LPIT_Type *pLPIT, T_UWORD period);
-void interrup_void_disableTimer(S_LPIT_Type *pLPIT);
-void interrup_void_clearFlag_lpitCh0(S_LPIT_Type  *pLPIT,T_UWORD mask);
 
+
+void clocks_void_SOSC_init_8MHz(void);
+void clocks_void_SPLL_init_160MHz(void);
+void clocks_void_NormalRUNmode_80MHz (void);
 
 
 #endif  /* Notice: the file ends with a blank new line to avoid compiler warnings */

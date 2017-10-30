@@ -4,7 +4,7 @@
 /*                        OBJECT SPECIFICATION                                */
 /*============================================================================*/
 /*!
- * $Source: filename.x $
+ * $Source: filename.c $
  * $Revision: version $
  * $Author: author $
  * $Date: date $
@@ -39,34 +39,49 @@
 /*                               OBJECT HISTORY                               */
 /*============================================================================*/
 /*
- * $Log: filename.h  $
+ * $Log: initclc.c  $
   ============================================================================*/
-//#ifndef FILENAME_H
-//#define FILENAME_H
+
 
 /* Includes */
 /*============================================================================*/
+#include "HAL/enableclc.h"
 
-#include "S32K144.h"
-/* Defines */
+
+/* Constants and types  */
 /*============================================================================*/
 
 
-/* Constants and types */
+
+/* Variables */
 /*============================================================================*/
 
 
-/* Exported Variables */
+
+/* Private functions prototypes */
 /*============================================================================*/
 
 
-/* Exported functions prototypes */
+
+/* Inline functions */
 /*============================================================================*/
 
 
-void SOSC_init_8MHz(void);
-void SPLL_init_160MHz(void);
-void NormalRUNmode_80MHz (void);
-void WDOG_disable (void);
 
-//#endif  /* Notice: the file ends with a blank new line to avoid compiler warnings */
+
+/* Private functions */
+/*============================================================================*/
+
+
+
+/* Exported functions */
+/*============================================================================*/
+
+
+
+void enableclc_vod_init_ClocksandModes(void){
+	
+	clocks_void_SOSC_init_8MHz();
+	clocks_void_SPLL_init_160MHz();
+	clocks_void_NormalRUNmode_80MHz ();
+}

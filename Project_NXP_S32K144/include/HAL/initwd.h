@@ -39,10 +39,10 @@
 /*                               OBJECT HISTORY                               */
 /*============================================================================*/
 /*
- * $Log: filename.h  $
+ * $Log: initwd.h  $
   ============================================================================*/
-//#ifndef FILENAME_H
-//#define FILENAME_H
+#ifndef INITWD_H
+#define INITWD_H
 
 /* Includes */
 /*============================================================================*/
@@ -67,5 +67,5 @@
 /* Exported functions prototypes */
 /*============================================================================*/
 
-void initWatchdog(WDOG_Type * pWD, int CNT, int TOVAL, int CS);
-//#endif  /* Notice: the file ends with a blank new line to avoid compiler warnings */
+void initwd_void_initWatchdog(S_WDOG_Type * pWD, T_UWORD CNT, T_UWORD TOVAL, T_UWORD CS);
+#endif  /* Notice: the file ends with a blank new line to avoid compiler warnings */

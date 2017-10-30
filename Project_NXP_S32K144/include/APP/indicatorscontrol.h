@@ -4,8 +4,8 @@
 /*                        OBJECT SPECIFICATION                                */
 /*============================================================================*/
 /*!
- * $Source: interrup.h $
- * $Revision: version 1 $
+ * $Source: filename.x $
+ * $Revision: version $
  * $Author: author $
  * $Date: date $
  */
@@ -39,15 +39,14 @@
 /*                               OBJECT HISTORY                               */
 /*============================================================================*/
 /*
- * $Log: interrup.h  $
+ * $Log: indicatorscontrol.h  $
   ============================================================================*/
-#ifndef INTERRUP_H
-#define INTERRUP_H
+#ifndef INDICATORSCONTROL_H
+#define INDICATORSCONTROL_H
 
 /* Includes */
 /*============================================================================*/
-#include "S32K144.h"
-#include "MAL/namingconventions.h"
+#include "HAL/indicators.h"
 
 /* Constants and types */
 /*============================================================================*/
@@ -59,13 +58,10 @@
 
 /* Exported functions prototypes */
 /*============================================================================*/
-void interrup_void_enableClocks(S_PCC_Type *pPCC, T_UWORD clocksrc, T_UWORD enablelpit0);
-void interrup_void_configureTimerChanel(S_LPIT_Type *pLPIT, T_UWORD chanel);
-void interrup_void_ch0TimeoutPeriodClocks(S_LPIT_Type *pLPIT, T_UWORD period);
-void interrup_void_enableTimer(S_LPIT_Type *pLPIT, T_UWORD period);
-void interrup_void_disableTimer(S_LPIT_Type *pLPIT);
-void interrup_void_clearFlag_lpitCh0(S_LPIT_Type  *pLPIT,T_UWORD mask);
+void ic_void_onIndicator_Up();
+void ic_void_offIndicator_Up();
 
-
+void ic_void_onIndicator_Down();
+void ic_void_offIndicator_Down();
 
 #endif  /* Notice: the file ends with a blank new line to avoid compiler warnings */

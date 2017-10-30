@@ -77,8 +77,8 @@
 /*============================================================================*/
 
 
-void enable_PCC_Port(int configPCC){
-	config_PCC_PORT(configPCC);
+void enableports_void_enable_PCC_Port(T_UWORD configPCC){
+	pccports_void_config_PCC_PORT(configPCC);
 }
 
 /* Notice: the file ends with a blank new line to avoid compiler warnings */

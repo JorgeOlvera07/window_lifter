@@ -4,8 +4,8 @@
 /*                        OBJECT SPECIFICATION                                */
 /*============================================================================*/
 /*!
- * $Source: interrup.h $
- * $Revision: version 1 $
+ * $Source: filename.c $
+ * $Revision: version $
  * $Author: author $
  * $Date: date $
  */
@@ -39,33 +39,105 @@
 /*                               OBJECT HISTORY                               */
 /*============================================================================*/
 /*
- * $Log: interrup.h  $
+ * $Log: initproyect.c  $
   ============================================================================*/
-#ifndef INTERRUP_H
-#define INTERRUP_H
 
 /* Includes */
 /*============================================================================*/
-#include "S32K144.h"
-#include "MAL/namingconventions.h"
+#include "APP/initproyect.h"
 
-/* Constants and types */
+
+
+/* Constants and types  */
 /*============================================================================*/
 
 
-/* Exported Variables */
+
+/* Variables */
 /*============================================================================*/
 
 
-/* Exported functions prototypes */
+
+/* Private functions prototypes */
 /*============================================================================*/
-void interrup_void_enableClocks(S_PCC_Type *pPCC, T_UWORD clocksrc, T_UWORD enablelpit0);
-void interrup_void_configureTimerChanel(S_LPIT_Type *pLPIT, T_UWORD chanel);
-void interrup_void_ch0TimeoutPeriodClocks(S_LPIT_Type *pLPIT, T_UWORD period);
-void interrup_void_enableTimer(S_LPIT_Type *pLPIT, T_UWORD period);
-void interrup_void_disableTimer(S_LPIT_Type *pLPIT);
-void interrup_void_clearFlag_lpitCh0(S_LPIT_Type  *pLPIT,T_UWORD mask);
 
 
 
-#endif  /* Notice: the file ends with a blank new line to avoid compiler warnings */
+/* Inline functions */
+/*============================================================================*/
+
+
+
+
+/* Private functions */
+/*============================================================================*/
+
+
+/* Exported functions */
+/*============================================================================*/
+void ip_void_EnablePCC (void){
+
+	enableports_void_enable_PCC_Port(PCCPORTB); /* Enable clock for PORT B */
+	enableports_void_enable_PCC_Port(PCCPORTC); /* Enable clock for PORT C */
+	enableports_void_enable_PCC_Port(PCCPORTD); /* Enable clock for PORT D */
+	enableports_void_enable_PCC_Port(PCCPORTE); /* Enable clock for PORT E */
+
+}
+
+/* Enable desired interrupts and priorities */
+void ip_void_EnableNVIC (void){
+	enablenvic_void_NVIC_init_IRQs();
+}
+
+
+void ip_void_WindowInit (void){
+
+	windowleds_void_config_Led_Port(PTC,PORTC,WINDOW_LED1,0x00000100);
+	windowleds_void_config_Led_Port(PTB,PORTB,WINDOW_LED2,0x00000100);
+	windowleds_void_config_Led_Port(PTB,PORTB,WINDOW_LED3,0x00000100);
+	windowleds_void_config_Led_Port(PTB,PORTB,WINDOW_LED4,0x00000100);
+	windowleds_void_config_Led_Port(PTB,PORTB,WINDOW_LED5,0x00000100);
+	windowleds_void_config_Led_Port(PTC,PORTC,WINDOW_LED6,0x00000100);
+	windowleds_void_config_Led_Port(PTE,PORTE,WINDOW_LED7,0x00000100);
+	windowleds_void_config_Led_Port(PTE,PORTE,WINDOW_LED8,0x00000100);
+	windowleds_void_config_Led_Port(PTE,PORTE,WINDOW_LED9,0x00000100);
+	windowleds_void_config_Led_Port(PTE,PORTE,WINDOW_LED10,0x00000100);
+
+}
+
+
+void ip_void_IndicatorsInit (void){
+
+	indicator_void_config_indicator(INDICATOR_PTD,PORTD,UP_Indicator,0x00000100);
+	indicator_void_config_indicator(INDICATOR_PTD,PORTD,DOWN_Indicator,0x00000100);
+	indicator_void_set_indicator(INDICATOR_PTD,UP_Indicator );
+	indicator_void_set_indicator(INDICATOR_PTD,DOWN_Indicator);
+
+}
+
+void ip_void_ButtonsInit (void){
+
+buttons_void_config_Buttons_Port(Button_PTC,PORTC,DOWN_Button,0x00000110);
+buttons_void_config_Buttons_Port(Button_PTC,PORTC,UP_Button,0x00000110);
+buttons_void_config_Buttons_Port(PTE,PORTE,PTE1,0x10C0110);
+
+}
+
+
+void ip_void_LPIT0Timer_init (void) {
+
+	timer_void_initLPIT0_Timer(PCC, LPIT0,6, PCC_PCCn_CGC_MASK,  0x00000001);
+
+}
+
+void ip_void_EnableClocksandModes (void){
+
+	enableclc_vod_init_ClocksandModes();
+}
+
+void ip_void_DisableWatchdog(){
+	initwd_void_initWatchdog(WDOG,maskcnt,masktoval,maskcs);
+}
+
+
+ /* Notice: the file ends with a blank new line to avoid compiler warnings */

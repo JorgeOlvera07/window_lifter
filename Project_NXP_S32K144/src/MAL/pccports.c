@@ -39,7 +39,7 @@
 /*                               OBJECT HISTORY                               */
 /*============================================================================*/
 /*
- * $Log: gpio.c  $
+ * $Log: pccports.c  $
   ============================================================================*/
 
 
@@ -80,7 +80,7 @@
 
 
 
-void config_PCC_PORT(int configPCC){
+void pccports_void_config_PCC_PORT(T_UWORD configPCC){
 	PCC-> PCCn[configPCC] = PCC_PCCn_CGC_MASK;
 }
 

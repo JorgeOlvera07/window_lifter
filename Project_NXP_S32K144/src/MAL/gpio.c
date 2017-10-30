@@ -76,40 +76,45 @@
 
 /* Exported functions */
 /*============================================================================*/
-void config_Pin_Out(GPIO_Type* PT,int numbit){
+void gpio_void_config_Pin_Out(S_GPIO_Type* PT, T_UWORD numbit){
 
 PT->PDDR |= 1<<numbit;
 
 
 }
 
-void config_Pin_Mux(PORT_Type * PORT,int numbit, int mux){
+void gpio_void_config_Pin_Mux(S_PORT_Type * PORT, T_UWORD numbit, T_UWORD mux){
 
 	PORT->PCR[numbit] = mux; //0x00000100;
 
 }
 
-void config_Pin_Int(GPIO_Type* PT, int numbit){
+void gpio_void_config_Pin_Int(S_GPIO_Type* PT, T_UWORD numbit){
 
 	PT->PDDR &= ~(1<<numbit);
 }
 
 
-void io_Set_Pin(GPIO_Type* PT,int numbit){
+void gpio_void_io_Set_Pin(S_GPIO_Type* PT,T_UWORD numbit){
 	PT-> PSOR |= 1<<numbit;
 }
 
-void io_Clear_Pin(GPIO_Type* PT,int numbit){
+void gpio_void_io_Clear_Pin(S_GPIO_Type* PT,T_UWORD numbit){
 	PT-> PCOR |= 1<<numbit;
 }
 
-unsigned char io_GetValue_Pin(GPIO_Type* PT,int numbit){
+T_UBYTE gpio_T_UBYTE_io_GetValue_Pin(S_GPIO_Type* PT,T_UWORD numbit){
 
 	if (PT->PDIR & (1<<numbit)){return 1;}
 	else{
 		return 0;
 	}
 }
+
+void gpio_void_clearFlag_interrPin(S_PORT_Type * pPORT,T_UWORD mask ){
+	pPORT->ISFR=mask;
+}
+
 
 
  /* Notice: the file ends with a blank new line to avoid compiler warnings */

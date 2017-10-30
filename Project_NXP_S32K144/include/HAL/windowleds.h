@@ -39,14 +39,15 @@
 /*                               OBJECT HISTORY                               */
 /*============================================================================*/
 /*
- * $Log: filename.h  $
+ * $Log: windowleds.h  $
   ============================================================================*/
-//#ifndef FILENAME_H
-//#define FILENAME_H
+#ifndef WINDOWLEDS_H
+#define WINDOWLEDS_H
 
 /* Includes */
 /*============================================================================*/
 #include "MAL/gpio.h"
+
 
 /* Defines */
 /*============================================================================*/
@@ -81,8 +82,8 @@
 
 /* Exported functions prototypes */
 /*============================================================================*/
-void config_Led_Port(GPIO_Type* PT, PORT_Type * PORT, int numbit, int mux);
-void openBit_Window(GPIO_Type* PT, int numbit);
-void closeBitWindow(GPIO_Type* PT, int numbit);
+void windowleds_void_config_Led_Port(S_GPIO_Type *PT, S_PORT_Type * PORT, T_UWORD numbit, T_UWORD mux);
+void windowleds_void_openBit_Window(S_GPIO_Type *PT, T_UWORD numbit);
+void windowleds_void_closeBit_Window(S_GPIO_Type *PT, T_UWORD numbit);
 
-//#endif  /* Notice: the file ends with a blank new line to avoid compiler warnings */
+#endif  /* Notice: the file ends with a blank new line to avoid compiler warnings */

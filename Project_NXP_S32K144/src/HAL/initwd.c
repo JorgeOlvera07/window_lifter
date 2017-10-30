@@ -77,8 +77,8 @@
 /*============================================================================*/
 
 
-void initWatchdog(WDOG_Type * pWD, int CNT, int TOVAL, int CS){
-	config_watchdog(pWD,CNT,TOVAL,CS);
+void initwd_void_initWatchdog(S_WDOG_Type * pWD, T_UWORD CNT, T_UWORD TOVAL, T_UWORD CS){
+	watchdog_void_config_watchdog(pWD,CNT,TOVAL,CS);
 }
 
 /* Notice: the file ends with a blank new line to avoid compiler warnings */

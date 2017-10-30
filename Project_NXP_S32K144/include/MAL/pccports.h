@@ -39,14 +39,15 @@
 /*                               OBJECT HISTORY                               */
 /*============================================================================*/
 /*
- * $Log: filename.h  $
+ * $Log: pccports.h  $
   ============================================================================*/
-//#ifndef FILENAME_H
-//#define FILENAME_H
+#ifndef PCCPORTS_H
+#define PCCPORTS_H
 
 /* Includes */
 /*============================================================================*/
 #include "S32K144.h"
+#include "MAL/namingconventions.h"
 
 /* Defines */
 /*============================================================================*/
@@ -64,6 +65,6 @@
 /* Exported functions prototypes */
 /*============================================================================*/
 
-void config_PCC_PORT(int configPCC);
+void pccports_void_config_PCC_PORT(T_UWORD configPCC);
 
-//#endif  /* Notice: the file ends with a blank new line to avoid compiler warnings */
+#endif  /* Notice: the file ends with a blank new line to avoid compiler warnings */

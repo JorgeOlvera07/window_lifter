@@ -74,19 +74,23 @@
 
 /* Exported functions */
 /*============================================================================*/
-void config_Buttons_Port(GPIO_Type* PT, PORT_Type * PORT, int numbit, int mux){
+void buttons_void_config_Buttons_Port(S_GPIO_Type* PT, S_PORT_Type * PORT, T_UWORD numbit, T_UWORD mux){
 
 
-	config_Pin_Int(PT,numbit);
-	config_Pin_Mux(PORT,numbit,mux);  //0x00000110 0xC0110
+	gpio_void_config_Pin_Int(PT,numbit);
+	gpio_void_config_Pin_Mux(PORT,numbit,mux);  //0x00000110 0xC0110
 
 
 }
 
-unsigned char get_Button_Value(GPIO_Type* PT,int numbit){
+T_UBYTE buttons_T_UBYTE_get_Button_Value(S_GPIO_Type* PT,T_UWORD numbit){
 
-	return (io_GetValue_Pin(PT,numbit));
+	return (gpio_T_UBYTE_io_GetValue_Pin(PT,numbit));
 
+}
+
+void buttons_void_clearFlag_antipinch(S_PORT_Type * pPORT,T_UWORD mask){
+	gpio_void_clearFlag_interrPin(pPORT,mask );
 }
 
 

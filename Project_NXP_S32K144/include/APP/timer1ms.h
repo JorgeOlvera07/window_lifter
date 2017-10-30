@@ -4,8 +4,8 @@
 /*                        OBJECT SPECIFICATION                                */
 /*============================================================================*/
 /*!
- * $Source: interrup.h $
- * $Revision: version 1 $
+ * $Source: filename.x $
+ * $Revision: version $
  * $Author: author $
  * $Date: date $
  */
@@ -39,15 +39,25 @@
 /*                               OBJECT HISTORY                               */
 /*============================================================================*/
 /*
- * $Log: interrup.h  $
+ * $Log: timer1ms.h  $
   ============================================================================*/
-#ifndef INTERRUP_H
-#define INTERRUP_H
+#ifndef TIMER1MS_H
+#define TIMER1MS_H
 
 /* Includes */
 /*============================================================================*/
-#include "S32K144.h"
-#include "MAL/namingconventions.h"
+#include "HAL/timer.h"
+
+/* Defines */
+/*============================================================================*/
+#define _1ms 1
+#define _10ms 10
+#define _500ms 500
+#define _400ms 400
+#define _1000ms 1000
+#define _3000ms 3000
+#define _5000ms 5000
+
 
 /* Constants and types */
 /*============================================================================*/
@@ -59,13 +69,9 @@
 
 /* Exported functions prototypes */
 /*============================================================================*/
-void interrup_void_enableClocks(S_PCC_Type *pPCC, T_UWORD clocksrc, T_UWORD enablelpit0);
-void interrup_void_configureTimerChanel(S_LPIT_Type *pLPIT, T_UWORD chanel);
-void interrup_void_ch0TimeoutPeriodClocks(S_LPIT_Type *pLPIT, T_UWORD period);
-void interrup_void_enableTimer(S_LPIT_Type *pLPIT, T_UWORD period);
-void interrup_void_disableTimer(S_LPIT_Type *pLPIT);
-void interrup_void_clearFlag_lpitCh0(S_LPIT_Type  *pLPIT,T_UWORD mask);
-
-
+void tmr1ms_void_initTimer1ms();
+void tmr1ms_void_EnableTimer1ms ();
+void tmr1ms_void_DisableTimer1ms ();
+void tmr1ms_void_clearFlagTimer1ms();
 
 #endif  /* Notice: the file ends with a blank new line to avoid compiler warnings */

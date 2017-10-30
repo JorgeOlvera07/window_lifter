@@ -41,12 +41,13 @@
 /*
  * $Log: filename.h  $
   ============================================================================*/
-//#ifndef FILENAME_H
-//#define FILENAME_H
+#ifndef GPIO_H
+#define GPIO_H
 
 /* Includes */
 /*============================================================================*/
 #include "S32K144.h"
+#include "MAL/namingconventions.h"
 /* Defines */
 /*============================================================================*/
 #define PTC0 0
@@ -140,12 +141,13 @@
 /* Exported functions prototypes */
 /*============================================================================*/
 
-void config_Pin_Out(GPIO_Type* PT, int numbit);
-void config_Pin_Mux(PORT_Type * PORT, int numbit, int mux);
-void config_Pin_Int(GPIO_Type* PT, int numbit);
-void io_Set_Pin(GPIO_Type* PT,int numbit);
-void io_Clear_Pin(GPIO_Type* PT,int numbit);
-unsigned char io_GetValue_Pin(GPIO_Type* PT,int numbit);
+void gpio_void_config_Pin_Out(S_GPIO_Type* PT, T_UWORD numbit);
+void gpio_void_config_Pin_Mux(S_PORT_Type * PORT, T_UWORD numbit, T_UWORD mux);
+void gpio_void_config_Pin_Int(S_GPIO_Type* PT, T_UWORD numbit);
+void gpio_void_io_Set_Pin(S_GPIO_Type* PT,T_UWORD numbit);
+void gpio_void_io_Clear_Pin(S_GPIO_Type* PT,T_UWORD numbit);
+T_UBYTE gpio_T_UBYTE_io_GetValue_Pin(S_GPIO_Type* PT,T_UWORD numbit);
+void gpio_void_clearFlag_interrPin(S_PORT_Type * pPORT,T_UWORD mask );
 
 
-//#endif  /* Notice: the file ends with a blank new line to avoid compiler warnings */
+#endif  /* Notice: the file ends with a blank new line to avoid compiler warnings */

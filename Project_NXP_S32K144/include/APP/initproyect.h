@@ -4,8 +4,8 @@
 /*                        OBJECT SPECIFICATION                                */
 /*============================================================================*/
 /*!
- * $Source: interrup.h $
- * $Revision: version 1 $
+ * $Source: filename.x $
+ * $Revision: version $
  * $Author: author $
  * $Date: date $
  */
@@ -39,16 +39,23 @@
 /*                               OBJECT HISTORY                               */
 /*============================================================================*/
 /*
- * $Log: interrup.h  $
+ * $Log: intproyect.h  $
   ============================================================================*/
-#ifndef INTERRUP_H
-#define INTERRUP_H
+#ifndef INITPROYECT_H
+#define INITPROYECT_H
 
 /* Includes */
 /*============================================================================*/
 #include "S32K144.h"
-#include "MAL/namingconventions.h"
 
+#include "HAL/buttons.h"
+#include "HAL/windowleds.h"
+#include "HAL/indicators.h"
+#include "HAL/timer.h"
+#include "HAL/enableports.h"
+#include "HAL/enableclc.h"
+#include "HAL/enablenvic.h"
+#include "HAL/initwd.h"
 /* Constants and types */
 /*============================================================================*/
 
@@ -59,13 +66,15 @@
 
 /* Exported functions prototypes */
 /*============================================================================*/
-void interrup_void_enableClocks(S_PCC_Type *pPCC, T_UWORD clocksrc, T_UWORD enablelpit0);
-void interrup_void_configureTimerChanel(S_LPIT_Type *pLPIT, T_UWORD chanel);
-void interrup_void_ch0TimeoutPeriodClocks(S_LPIT_Type *pLPIT, T_UWORD period);
-void interrup_void_enableTimer(S_LPIT_Type *pLPIT, T_UWORD period);
-void interrup_void_disableTimer(S_LPIT_Type *pLPIT);
-void interrup_void_clearFlag_lpitCh0(S_LPIT_Type  *pLPIT,T_UWORD mask);
 
+void ip_void_LPIT0Timer_init (void);
+void ip_void_WindowInit (void);
+void ip_void_IndicatorsInit (void);
+void ip_void_EnablePCC (void);
+void ip_void_ButtonsInit (void);
+void ip_void_EnableClocksandModes (void);
+void ip_void_EnableNVIC(void);
+void ip_void_DisableWatchdog(void);
 
 
 #endif  /* Notice: the file ends with a blank new line to avoid compiler warnings */

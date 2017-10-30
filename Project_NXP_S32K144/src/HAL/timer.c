@@ -75,20 +75,24 @@
 /* Exported functions */
 /*============================================================================*/
 
-void initLPIT0_Timer(PCC_Type *pPCC, LPIT_Type *pLPIT,int clocksrc, int enablelpit0, int chanel){
-	enableClocks(pPCC, clocksrc, enablelpit0);
-	configureTimerChanel(pLPIT, chanel);
+void timer_void_initLPIT0_Timer(S_PCC_Type *pPCC, S_LPIT_Type *pLPIT,T_UWORD clocksrc, T_UWORD enablelpit0, T_UWORD chanel){
+	interrup_void_enableClocks(pPCC, clocksrc, enablelpit0);
+	interrup_void_configureTimerChanel(pLPIT, chanel);
 
 }
-void configTime(LPIT_Type *pLPIT, int period){
-	ch0TimeoutPeriodClocks(pLPIT,period);
+void timer_void_configTime(S_LPIT_Type *pLPIT, T_UWORD period){
+	interrup_void_ch0TimeoutPeriodClocks(pLPIT,period);
 }
-void enable_Timer(LPIT_Type *pLPIT, int period){
-	enableTimer(pLPIT,period);
+void timer_void_enable_Timer(S_LPIT_Type *pLPIT, T_UWORD period){
+	interrup_void_enableTimer(pLPIT,period);
 }
 
-void disable_Timer(LPIT_Type *pLPIT){
-	disableTimer(pLPIT);
+void timer_void_disable_Timer(S_LPIT_Type *pLPIT){
+	interrup_void_disableTimer(pLPIT);
+}
+
+void timer_void_clearFlag_lpitCh0(S_LPIT_Type *pLPIT, T_UWORD mask){
+	interrup_void_clearFlag_lpitCh0(pLPIT,mask);
 }
 
 

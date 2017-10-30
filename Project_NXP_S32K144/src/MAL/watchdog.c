@@ -39,7 +39,7 @@
 /*                               OBJECT HISTORY                               */
 /*============================================================================*/
 /*
- * $Log: gpio.c  $
+ * $Log: watchdog.c  $
   ============================================================================*/
 
 
@@ -80,7 +80,7 @@
 /*============================================================================*/
 
 
-void config_watchdog(WDOG_Type * pWD, int CNT, int TOVAL, int CS ){
+void watchdog_void_config_watchdog(S_WDOG_Type * pWD, int CNT, int TOVAL, int CS ){
 	
 	pWD->CNT=CNT; /*Unlock watchdog*/
 	pWD->TOVAL=TOVAL; /*Maximum timeout value*/
