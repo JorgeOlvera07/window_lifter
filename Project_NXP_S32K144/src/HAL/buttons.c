@@ -4,19 +4,15 @@
 /*                        OBJECT SPECIFICATION                                */
 /*============================================================================*/
 /*!
- * $Source: filename.c $
- * $Revision: version $
- * $Author: author $
- * $Date: date $
+ * $Source: buttons.c $
+ * $Revision: version 5 $
+ * $Author: Olvera Contreras Jorge Alberto, Luis Eduardo Archundia Picazzo  $
+ * $Date: 30/10/17 $
  */
 /*============================================================================*/
 /* DESCRIPTION :                                                              */
 /** \file
-    short description in one sentence end with dot.
-    detailed
-    multiline
-    description of the file
-*/
+    HAL file to configure the buttons                                         */
 /*============================================================================*/
 /* COPYRIGHT (C) CONTINENTAL AUTOMOTIVE 2014                                  */
 /* AUTOMOTIVE GROUP, Interior Division, Body and Security                     */
@@ -32,14 +28,15 @@
 /*============================================================================*/
 /*                    REUSE HISTORY - taken over from                         */
 /*============================================================================*/
-/*  DATABASE           |        PROJECT     | FILE VERSION (AND INSTANCE)     */
+/*    Author           |      Version       |       Description               */
 /*----------------------------------------------------------------------------*/
-/*                     |                    |                                 */
+/* Olvera Jorge      |           5        | HAL file to configure             */
+/* Archundia Luis    |           5        | the buttons                       */
 /*============================================================================*/
 /*                               OBJECT HISTORY                               */
 /*============================================================================*/
 /*
- * $Log: filename.c  $
+ * $Log: buttons.c  $
   ============================================================================*/
 
 /* Includes */

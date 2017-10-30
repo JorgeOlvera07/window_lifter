@@ -4,18 +4,15 @@
 /*                        OBJECT SPECIFICATION                                */
 /*============================================================================*/
 /*!
- * $Source: filename.c $
- * $Revision: version $
- * $Author: author $
- * $Date: datee $
+ * $Source: indicatorscontrol.c $
+ * $Revision: version 5 $
+ * $Author: Olvera Contreras Jorge Alberto, Luis Eduardo Archundia Picazzo  $
+ * $Date: 30/10/17 $
  */
 /*============================================================================*/
 /* DESCRIPTION :                                                              */
 /** \file
-    short description in one sentence end with dot.
-    detailed
-    multiline
-    description of the file
+    APP file to control the indicators
 */
 /*============================================================================*/
 /* COPYRIGHT (C) CONTINENTAL AUTOMOTIVE 2014                                  */
@@ -32,9 +29,10 @@
 /*============================================================================*/
 /*                    REUSE HISTORY - taken over from                         */
 /*============================================================================*/
-/*  DATABASE           |        PROJECT     | FILE VERSION (AND INSTANCE)     */
+/*    Author           |      Version       |       Description               */
 /*----------------------------------------------------------------------------*/
-/*                     |                    |                                 */
+/* Olvera Jorge      |           5        | APP file to control             */
+/* Archundia Luis    |           5        | the indicators                       */
 /*============================================================================*/
 /*                               OBJECT HISTORY                               */
 /*============================================================================*/
