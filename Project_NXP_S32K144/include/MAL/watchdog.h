@@ -4,18 +4,15 @@
 /*                        OBJECT SPECIFICATION                                */
 /*============================================================================*/
 /*!
- * $Source: filename.x $
- * $Revision: version $
- * $Author: author $
- * $Date: date $
+ * $Source: watchdog.h $
+ * $Revision: version #5 $
+ * $Author: Jorge Alberto Olvera Contreras, Luis Eduardo Archundia Picazzo $
+ * $Date: 30/10/2017 $
  */
 /*============================================================================*/
 /* DESCRIPTION :                                                              */
-/** \file
-    short description in one sentence end with dot.
-    detailed
-    multiline
-    description of the file
+/** \MAL file for watchdog configuration.
+    
 */
 /*============================================================================*/
 /* COPYRIGHT (C) CONTINENTAL AUTOMOTIVE 2014                                  */
@@ -32,9 +29,10 @@
 /*============================================================================*/
 /*                    REUSE HISTORY - taken over from                         */
 /*============================================================================*/
-/*  DATABASE           |        PROJECT     | FILE VERSION (AND INSTANCE)     */
+/*  AUTHOR             |   VERSION    |              DESCRIPTION              */
 /*----------------------------------------------------------------------------*/
-/*                     |                    |                                 */
+/*  Luis Archundia     |      5       | MAL file for watchdog configuration.  */
+/*  Jorge Olvera       |      5       | MAL file for watchdog configuration.  */
 /*============================================================================*/
 /*                               OBJECT HISTORY                               */
 /*============================================================================*/
