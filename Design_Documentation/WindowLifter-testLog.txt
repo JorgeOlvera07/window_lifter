@@ -1,6 +1,6 @@
 
 
-TESTING TEAM:          MEMO/MANUEL
+TESTING TEAM:          GUILLERFMO HERNÁNDEZ  / MANUEL HERNÁNDEZ
 DATE:        	       01/11/2017
 TIME(24HR):            12:13
 # OF TESTS PERFORMED:  08
@@ -83,7 +83,7 @@ Comments:              * If both Button down and Anti-pinch button pressed simul
 
 
 
-TESTING TEAM:          RODRIGO/RAFA
+TESTING TEAM:          RODRIGO MORTERA / RAFAÉL SÁNCHEZ
 DATE:        	       01/11/2017
 TIME(24HR):            14:12
 # OF TESTS PERFORMED:  08
@@ -163,7 +163,7 @@ Comments:              * If both Button down and Anti-pinch button pressed simul
 
 
 
-TESTING TEAM:          CARLOS/GEORGINA
+TESTING TEAM:          CARLOS MARTÍNEZ / GEORGINA SALAZAR
 DATE:        	       01/11/2017
 TIME(24HR):            15:30
 # OF TESTS PERFORMED:  08
@@ -240,7 +240,7 @@ Comments:              * Anti-pinch functionality works whenever button #3 is pr
 
 
 
-TESTING TEAM:          TOÑO/JORGE
+TESTING TEAM:          ANTONIO VÁZQUEZ / JORGE ACEVEDO
 DATE:        	       01/11/2017
 TIME(24HR):            15:52
 # OF TESTS PERFORMED:  08
@@ -317,7 +317,7 @@ Comments:              * if down + antipinch a clear blue output activates in RG
 
 
 
-TESTING TEAM:          ALEX/ESTEFANÍA
+TESTING TEAM:          ALEJANDRO APEZ / ESTEFANÍA LÓPEZ
 DATE:        	       01/11/2017
 TIME(24HR):            16:19
 # OF TESTS PERFORMED:  08
@@ -386,4 +386,46 @@ Comments:              * if down + antipinch a clear blue output activates in RG
 
 
 ========================================================================================================================================================================
- 
+
+
+
+TESTING TEAM:          JORGE OLVERA /LUIS ARCHUNDIA
+DATE:        	       01/11/2017
+TIME(24HR):            16:01
+# OF TESTS PERFORMED:  04
+TOTAL TESTING 
+TIME ELAPSED: 	       16 minutes
+
+
+ID-TEST NAME:          01-Digital Output Debounce Test @ < 10ms
+
+Status:      	       PASS
+
+Comments:              * Debounce for button press validation works properly.
+
+
+ID-TEST NAME:          02-Digital Output One-touch Validation Test @ < 500ms
+
+Status:      	       PASS 
+
+Comments:              * One-touch button press validation works properly.
+
+			
+ID-TEST NAME:          03-Digital Output Manual Validation Test @ <= 600ms
+
+Status:      	       UN-SPECIFIED
+
+Comments:              * Manual button press validation does not work properly with this time constraint.
+		       * In manual mode, the module waits to add the 500+ ms time constraint along with the 400ms time constraint with the
+		         ledBar's state transition.
+		       * Assumption proven with the next test: test ID xx - Digital Output Manual @ <= 900ms
+		   
+		  
+ID-TEST NAME:          04-Digital Output Manual @ <= 900ms
+
+Status:      	       PASS
+
+Comments:              * Both manual modes work only by adding the 400ms ledBar time transition constraint to the 500ms button validation
+                         mode constraint.
+
+
