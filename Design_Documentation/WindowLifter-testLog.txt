@@ -389,7 +389,7 @@ Comments:              * if down + antipinch a clear blue output activates in RG
 
 
 
-TESTING TEAM:          JORGE OLVERA /LUIS ARCHUNDIA
+TESTING TEAM:          JORGE OLVERA / LUIS ARCHUNDIA
 DATE:        	       01/11/2017
 TIME(24HR):            16:01
 # OF TESTS PERFORMED:  04
@@ -397,21 +397,21 @@ TOTAL TESTING
 TIME ELAPSED: 	       16 minutes
 
 
-ID-TEST NAME:          01-Digital Output Debounce Test @ < 10ms
+ID-TEST NAME:          09-Digital Output Debounce Test @ < 10ms
 
 Status:      	       PASS
 
 Comments:              * Debounce for button press validation works properly.
 
 
-ID-TEST NAME:          02-Digital Output One-touch Validation Test @ < 500ms
+ID-TEST NAME:          10-Digital Output One-touch Validation Test @ < 500ms
 
 Status:      	       PASS 
 
 Comments:              * One-touch button press validation works properly.
 
 			
-ID-TEST NAME:          03-Digital Output Manual Validation Test @ <= 600ms
+ID-TEST NAME:          11-Digital Output Manual Validation Test @ <= 600ms
 
 Status:      	       UN-SPECIFIED
 
@@ -421,7 +421,7 @@ Comments:              * Manual button press validation does not work properly w
 		       * Assumption proven with the next test: test ID xx - Digital Output Manual @ <= 900ms
 		   
 		  
-ID-TEST NAME:          04-Digital Output Manual @ <= 900ms
+ID-TEST NAME:          12-Digital Output Manual @ <= 900ms
 
 Status:      	       PASS
 
