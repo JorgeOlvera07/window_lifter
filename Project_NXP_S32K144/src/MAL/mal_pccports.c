@@ -4,15 +4,19 @@
 /*                        OBJECT SPECIFICATION                                */
 /*============================================================================*/
 /*!
- * $Source: nvicinit.h $
- * $Revision: version #5 $
- * $Author: Jorge Alberto Olvera Contreras, Luis Eduardo Archundia Picazzo $
- * $Date: 30/10/2017 $
+ * $Source: mal_pccports.c $
+ * $Revision: version #6 $
+ * $Author: Olvera Contreras Jorge Alberto, Luis Eduardo Archundia Picazzo  $
+ * $Date: 03/11/2017 $
  */
 /*============================================================================*/
 /* DESCRIPTION :                                                              */
-/** \MAL file for all interrupts config.
-    
+/** \file
+    MAL file to initialize and configure all pcc ports.
+
+    * Changed name of file in order to comply with naming convention
+      standards - 03/11/2017 
+                      
 */
 /*============================================================================*/
 /* COPYRIGHT (C) CONTINENTAL AUTOMOTIVE 2014                                  */
@@ -29,40 +33,59 @@
 /*============================================================================*/
 /*                    REUSE HISTORY - taken over from                         */
 /*============================================================================*/
-/*       AUTHOR        |    VERSION    |            DESCRIPTION               */
+/*    Author         |      Version    |       Description                    */
 /*----------------------------------------------------------------------------*/
-/*  Luis Archundia     |       5       |  MAL file for all interrupts config. */
-/*  Jorge Olvera       |       5       |  MAL file for all interrupts config. */
+/* Olvera Jorge      |         5       | APP file to control the port's clock */
+/* Archundia Luis    |         5       | APP file to control the interrupts   */
+/* Luis Archundia    |         6       | File name modified to comply with    */
+/*		     |	               | naming convention standards.         */
 /*============================================================================*/
 /*                               OBJECT HISTORY                               */
 /*============================================================================*/
 /*
- * $Log: nvicinit.h  $
+ * $Log: mal_pccports.c  $
   ============================================================================*/
-#ifndef NVICINIT_H
-#define NVICINIT_H
+
 
 /* Includes */
 /*============================================================================*/
 
-#include "S32K144.h"
-#include "MAL/namingconventions.h"
-/* Defines */
+#include "MAL/mal_pccports.h"
+
+
+/* Constants and types  */
 /*============================================================================*/
 
 
-/* Constants and types */
+
+/* Variables */
 /*============================================================================*/
 
 
-/* Exported Variables */
+
+/* Private functions prototypes */
 /*============================================================================*/
 
 
-/* Exported functions prototypes */
+
+/* Inline functions */
 /*============================================================================*/
 
 
-void nvicinit_void_NVIC_init_IRQs (void);
 
-#endif  /* Notice: the file ends with a blank new line to avoid compiler warnings */
+
+/* Private functions */
+/*============================================================================*/
+
+
+
+/* Exported functions */
+/*============================================================================*/
+
+
+
+void pccports_void_config_PCC_PORT(T_UWORD configPCC){
+	PCC-> PCCn[configPCC] = PCC_PCCn_CGC_MASK;
+}
+
+/* Notice: the file ends with a blank new line to avoid compiler warnings */

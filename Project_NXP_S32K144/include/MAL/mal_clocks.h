@@ -4,14 +4,17 @@
 /*                        OBJECT SPECIFICATION                                */
 /*============================================================================*/
 /*!
- * $Source: pccports.h $
- * $Revision: version #5 $
+ * $Source: mal_clocks.h $
+ * $Revision: version #6 $
  * $Author: Jorge Alberto Olvera Contreras, Luis Eduardo Archundia Picazzo $
- * $Date: 30/10/2017 $
+ * $Date: 03/11/2017 $
  */
 /*============================================================================*/
 /* DESCRIPTION :                                                              */
-/** \MAL file for port's peripheral clock control.
+/** \MAL file for clock enabling.
+
+    * Changed name of file in order to comply with naming convention
+      standards - 03/11/2017
     
 */
 /*============================================================================*/
@@ -29,27 +32,28 @@
 /*============================================================================*/
 /*                    REUSE HISTORY - taken over from                         */
 /*============================================================================*/
-/*      AUTHOR     | VERSION  |             DESCRIPTION                       */
+/*     AUTHOR          |      VERSION     |        DESCRIPTION                */
 /*----------------------------------------------------------------------------*/
-/*  Luis Archundia |    5     | MAL file for port's peripheral clock control. */
-/*  Jorge Olvera   |    5     | MAL file for port's peripheral clock control. */
+/*  Luis Archundia     |         5        |    MAL file for clock enabling    */
+/*  Jorge Olvera       |         5        |    MAL file for clock enabling    */
+/*  Luis Archundia     |         6        | File name modified to comply with */
+/*		       |	          | naming convention standards.      */
 /*============================================================================*/
 /*                               OBJECT HISTORY                               */
 /*============================================================================*/
 /*
- * $Log: pccports.h  $
+ * $Log: mal_clocks.h  $
   ============================================================================*/
-#ifndef PCCPORTS_H
-#define PCCPORTS_H
+#ifndef CLOCKS_H
+#define CLOCKS_H
 
 /* Includes */
 /*============================================================================*/
-#include "S32K144.h"
-#include "MAL/namingconventions.h"
 
+#include "S32K144.h"
+#include "MAL/mal_namingconventions.h"
 /* Defines */
 /*============================================================================*/
-/* Enable PCC PORTS */
 
 
 /* Constants and types */
@@ -63,6 +67,10 @@
 /* Exported functions prototypes */
 /*============================================================================*/
 
-void pccports_void_config_PCC_PORT(T_UWORD configPCC);
+
+void clocks_void_SOSC_init_8MHz(void);
+void clocks_void_SPLL_init_160MHz(void);
+void clocks_void_NormalRUNmode_80MHz (void);
+
 
 #endif  /* Notice: the file ends with a blank new line to avoid compiler warnings */

@@ -4,15 +4,18 @@
 /*                        OBJECT SPECIFICATION                                */
 /*============================================================================*/
 /*!
- * $Source: nvicinit.c $
- * $Revision: version 5 $
- * $Author: Olvera Contreras Jorge Alberto, Luis Eduardo Archundia Picazzo  $
- * $Date: 30/10/17 $
+ * $Source: mal_watchdog.h $
+ * $Revision: version #6 $
+ * $Author: Jorge Alberto Olvera Contreras, Luis Eduardo Archundia Picazzo $
+ * $Date: 03/11/2017 $
  */
 /*============================================================================*/
 /* DESCRIPTION :                                                              */
-/** \file
-    MAL file to initialize and configure all nvic
+/** \MAL file for watchdog configuration.
+
+    * Changed name of file in order to comply with naming convention
+      standards - 03/11/2017
+    
 */
 /*============================================================================*/
 /* COPYRIGHT (C) CONTINENTAL AUTOMOTIVE 2014                                  */
@@ -29,64 +32,38 @@
 /*============================================================================*/
 /*                    REUSE HISTORY - taken over from                         */
 /*============================================================================*/
-/*    Author           |      Version       |       Description               */
+/*  AUTHOR             |   VERSION    |              DESCRIPTION              */
 /*----------------------------------------------------------------------------*/
-/* Olvera Jorge        |           5        | MAL file to initialize and      */
-/* Archundia Luis      |           5        | configure all nvic              */
+/*  Luis Archundia     |      5       | MAL file for watchdog configuration.  */
+/*  Jorge Olvera       |      5       | MAL file for watchdog configuration.  */
+/*  Luis Archundia     |      6       | File name modified to comply with     */
+/*		       |	      | naming convention standards.          */
 /*============================================================================*/
 /*                               OBJECT HISTORY                               */
 /*============================================================================*/
 /*
- * $Log: nvicinit.c  $
+ * $Log: mal_watchdog.h  $
   ============================================================================*/
-
+#ifndef WATCHDOG_H
+#define WATCHDOG_H
 
 /* Includes */
 /*============================================================================*/
+#include "S32K144.h"
+#include "MAL/mal_namingconventions.h"
+/* Defines */
+/*============================================================================*/
 
-#include "MAL/nvicinit.h"
-
-
-/* Constants and types  */
+/* Constants and types */
 /*============================================================================*/
 
 
-
-/* Variables */
+/* Exported Variables */
 /*============================================================================*/
 
 
-
-/* Private functions prototypes */
+/* Exported functions prototypes */
 /*============================================================================*/
 
-
-
-/* Inline functions */
-/*============================================================================*/
-
-
-
-
-/* Private functions */
-/*============================================================================*/
-
-
-
-/* Exported functions */
-/*============================================================================*/
-
-
-void nvicinit_void_NVIC_init_IRQs (void) {
-
-	S32_NVIC->ICPR[1] = 1 << (48 % 32); /* IRQ48-LPIT0 ch0: clr any pending IRQ*/
-	S32_NVIC->ISER[1] = 1 << (48 % 32); /* IRQ48-LPIT0 ch0: enable IRQ */
-	S32_NVIC->IP[48] =0x0A; /* IRQ48-LPIT0 ch0: priority 10 of 0-15*/
-	S32_NVIC->ICPR[1] = 1 << (63 % 32); /* IRQ48-LPIT0 ch0: clr any pending IRQ*/
-	S32_NVIC->ISER[1] = 1 << (63 % 32); /* IRQ48-LPIT0 ch0: enable IRQ */
-	S32_NVIC->IP[63] =0x0C; /* IRQ48-LPIT0 ch0: priority 10 of 0-15*/
-
-}
-
-/* Notice: the file ends with a blank new line to avoid compiler warnings */
-
+void watchdog_void_config_watchdog(S_WDOG_Type * pWD, int CNT, int TOVAL, int CS );
+#endif  /* Notice: the file ends with a blank new line to avoid compiler warnings */

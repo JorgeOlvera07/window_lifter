@@ -4,14 +4,17 @@
 /*                        OBJECT SPECIFICATION                                */
 /*============================================================================*/
 /*!
- * $Source: namingconventions.h $
- * $Revision: version #5 $
+ * $Source: mal_pccports.h $
+ * $Revision: version #6 $
  * $Author: Jorge Alberto Olvera Contreras, Luis Eduardo Archundia Picazzo $
- * $Date: 30/10/2017 $
+ * $Date: 03/11/2017 $
  */
 /*============================================================================*/
 /* DESCRIPTION :                                                              */
-/** \MAL file naming convention definition.
+/** \MAL file for port's peripheral clock control.
+
+    * Changed name of file in order to comply with naming convention
+      standards - 03/11/2017
     
 */
 /*============================================================================*/
@@ -29,38 +32,30 @@
 /*============================================================================*/
 /*                    REUSE HISTORY - taken over from                         */
 /*============================================================================*/
-/*  AUTHOR             |  VERSION  |         DESCRIPTION                      */
+/*      AUTHOR     | VERSION  |             DESCRIPTION                       */
 /*----------------------------------------------------------------------------*/
-/*  Luis Archundia     |     5     |  MAL file naming convention definition.  */
-/*  Jorge Olvera       |     5     |  MAL file naming convention definition.  */
+/*  Luis Archundia |    5     | MAL file for port's peripheral clock control. */
+/*  Jorge Olvera   |    5     | MAL file for port's peripheral clock control. */
+/*  Luis Archundia |    6     | File name modified to comply with             */
+/*		   |	      | naming convention standards.                  */
 /*============================================================================*/
 /*                               OBJECT HISTORY                               */
 /*============================================================================*/
 /*
- * $Log: namingconventions.h  $
+ * $Log: mal_pccports.h  $
   ============================================================================*/
-#ifndef NAMINGCONVENTIONS_H
-#define NAMINGCONVENTIONS_H
+#ifndef PCCPORTS_H
+#define PCCPORTS_H
 
 /* Includes */
 /*============================================================================*/
-
 #include "S32K144.h"
+#include "MAL/mal_namingconventions.h"
 
 /* Defines */
 /*============================================================================*/
+/* Enable PCC PORTS */
 
-
-#define T_UBYTE unsigned char
-#define T_UWORD unsigned int
-#define T_ULONG unsigned long
-
-#define  S_GPIO_Type GPIO_Type
-#define S_PORT_Type PORT_Type
-#define S_PCC_Type PCC_Type
-#define S_LPIT_Type LPIT_Type
-#define S_WDOG_Type WDOG_Type
-#define S_WDOG_Type WDOG_Type
 
 /* Constants and types */
 /*============================================================================*/
@@ -72,5 +67,7 @@
 
 /* Exported functions prototypes */
 /*============================================================================*/
+
+void pccports_void_config_PCC_PORT(T_UWORD configPCC);
 
 #endif  /* Notice: the file ends with a blank new line to avoid compiler warnings */

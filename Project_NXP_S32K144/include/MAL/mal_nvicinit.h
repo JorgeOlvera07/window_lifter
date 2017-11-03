@@ -4,14 +4,17 @@
 /*                        OBJECT SPECIFICATION                                */
 /*============================================================================*/
 /*!
- * $Source: interrup.h $
- * $Revision: version #5 $
+ * $Source: mal_nvicinit.h $
+ * $Revision: version #6 $
  * $Author: Jorge Alberto Olvera Contreras, Luis Eduardo Archundia Picazzo $
- * $Date: 30/10/2017 $
+ * $Date: 03/11/2017 $
  */
 /*============================================================================*/
 /* DESCRIPTION :                                                              */
-/** \MAL file for interrupt enabling.
+/** \MAL file for all interrupts config.
+
+    * Changed name of file in order to comply with naming convention
+      standards - 03/11/2017
     
 */
 /*============================================================================*/
@@ -29,23 +32,29 @@
 /*============================================================================*/
 /*                    REUSE HISTORY - taken over from                         */
 /*============================================================================*/
-/*  AUTHOR             |      VERSION       |        DESCRIPTION              */
+/*       AUTHOR        |    VERSION    |            DESCRIPTION               */
 /*----------------------------------------------------------------------------*/
-/*  Luis Archundia     |         5          | MAL file for interrupt enabling */
-/*  Jorge Olvera       |         5          | MAL file for interrupt enabling */
+/*  Luis Archundia     |       5       | MAL file for all interrupts config.  */
+/*  Jorge Olvera       |       5       | MAL file for all interrupts config.  */
+/*  Luis Archundia     |       6       | File name modified to comply with    */
+/*		       |	       | naming convention standards.         */
 /*============================================================================*/
 /*                               OBJECT HISTORY                               */
 /*============================================================================*/
 /*
- * $Log: interrup.h  $
+ * $Log: mal_nvicinit.h  $
   ============================================================================*/
-#ifndef INTERRUP_H
-#define INTERRUP_H
+#ifndef NVICINIT_H
+#define NVICINIT_H
 
 /* Includes */
 /*============================================================================*/
+
 #include "S32K144.h"
-#include "MAL/namingconventions.h"
+#include "MAL/mal_namingconventions.h"
+/* Defines */
+/*============================================================================*/
+
 
 /* Constants and types */
 /*============================================================================*/
@@ -57,13 +66,8 @@
 
 /* Exported functions prototypes */
 /*============================================================================*/
-void interrup_void_enableClocks(S_PCC_Type *pPCC, T_UWORD clocksrc, T_UWORD enablelpit0);
-void interrup_void_configureTimerChanel(S_LPIT_Type *pLPIT, T_UWORD chanel);
-void interrup_void_ch0TimeoutPeriodClocks(S_LPIT_Type *pLPIT, T_UWORD period);
-void interrup_void_enableTimer(S_LPIT_Type *pLPIT, T_UWORD period);
-void interrup_void_disableTimer(S_LPIT_Type *pLPIT);
-void interrup_void_clearFlag_lpitCh0(S_LPIT_Type  *pLPIT,T_UWORD mask);
 
 
+void nvicinit_void_NVIC_init_IRQs (void);
 
 #endif  /* Notice: the file ends with a blank new line to avoid compiler warnings */

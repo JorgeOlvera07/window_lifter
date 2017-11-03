@@ -4,15 +4,18 @@
 /*                        OBJECT SPECIFICATION                                */
 /*============================================================================*/
 /*!
- * $Source: interrup.c $
- * $Revision: version 5 $
- * $Author: Olvera Contreras Jorge Alberto, Luis Eduardo Archundia Picazzo  $
- * $Date: 30/10/17 $
+ * $Source: mal_namingconventions.h $
+ * $Revision: version #6 $
+ * $Author: Jorge Alberto Olvera Contreras, Luis Eduardo Archundia Picazzo $
+ * $Date: 30/10/2017 $
  */
 /*============================================================================*/
 /* DESCRIPTION :                                                              */
-/** \file
-    MAL file to initialize and configure the timer´s interrup
+/** \MAL file naming convention definition.
+
+    * Changed name of file in order to comply with naming convention
+      standards - 03/11/2017
+    
 */
 /*============================================================================*/
 /* COPYRIGHT (C) CONTINENTAL AUTOMOTIVE 2014                                  */
@@ -29,79 +32,50 @@
 /*============================================================================*/
 /*                    REUSE HISTORY - taken over from                         */
 /*============================================================================*/
-/*    Author           |      Version       |       Description               */
+/*  AUTHOR             |  VERSION  |         DESCRIPTION                      */
 /*----------------------------------------------------------------------------*/
-/* Olvera Jorge        |           5        | MAL file to initialize and      */
-/* Archundia Luis      |           5        | configure the timer´s interrup  */
+/*  Luis Archundia     |     5     |  MAL file naming convention definition.  */
+/*  Jorge Olvera       |     5     |  MAL file naming convention definition.  */
+/*  Luis Archundia     |     6     | File name modified to comply with        */
+/*		       |	   | naming convention standards.             */
 /*============================================================================*/
 /*                               OBJECT HISTORY                               */
 /*============================================================================*/
 /*
- * $Log: interrup.c  $
+ * $Log: mal_namingconventions.h  $
   ============================================================================*/
+#ifndef NAMINGCONVENTIONS_H
+#define NAMINGCONVENTIONS_H
 
 /* Includes */
 /*============================================================================*/
-#include "MAL/interrup.h"
+
+#include "S32K144.h"
 
 /* Defines */
 /*============================================================================*/
-#define TIMER0 LPIT0
 
-/* Constants and types  */
+
+#define T_UBYTE unsigned char
+#define T_UWORD unsigned int
+#define T_ULONG unsigned long
+
+#define  S_GPIO_Type GPIO_Type
+#define S_PORT_Type PORT_Type
+#define S_PCC_Type PCC_Type
+#define S_LPIT_Type LPIT_Type
+#define S_WDOG_Type WDOG_Type
+#define S_WDOG_Type WDOG_Type
+
+/* Constants and types */
 /*============================================================================*/
 
 
-
-/* Variables */
+/* Exported Variables */
 /*============================================================================*/
 
 
-
-/* Private functions prototypes */
+/* Exported functions prototypes */
 /*============================================================================*/
 
-
-
-/* Inline functions */
-/*============================================================================*/
-
-
-/* Private functions */
-/*============================================================================*/
-
-
-/* Exported functions */
-/*============================================================================*/
-
-void interrup_void_enableClocks(S_PCC_Type *pPCC, T_UWORD clocksrc, T_UWORD enablelpit0){
-	pPCC->PCCn[PCC_LPIT_INDEX] = PCC_PCCn_PCS(clocksrc); /* Clock Src = 6 (SPLL2_DIV2_CLK)*/
-	pPCC->PCCn[PCC_LPIT_INDEX] |= enablelpit0; /* Enable clk to LPIT0 regs */
-
-}
-
-void interrup_void_configureTimerChanel(S_LPIT_Type *pLPIT, T_UWORD chanel){
-
-
-	pLPIT->MCR = chanel;
-	LPIT0->MIER = chanel;
-}
-
-void interrup_void_ch0TimeoutPeriodClocks(S_LPIT_Type *pLPIT, T_UWORD period){
-	pLPIT->TMR[0].TVAL = period;//1 ms = 40000
-}
-void interrup_void_enableTimer(S_LPIT_Type *pLPIT, T_UWORD period){
-	pLPIT->TMR[0].TVAL = period;
-	pLPIT->TMR[0].TCTRL = 0x00000001;
-}
-void interrup_void_disableTimer(S_LPIT_Type *pLPIT){
-	pLPIT->TMR[0].TCTRL = 0x00000000;
-}
-
-void interrup_void_clearFlag_lpitCh0(S_LPIT_Type *pLPIT,T_UWORD mask){
-	pLPIT->MSR |= mask; /* LPIT_MSR_TIF0_MASK Clear LPIT0 timer flag 0 */
-}
-
-
-
- /* Notice: the file ends with a blank new line to avoid compiler warnings */
+#endif  /* Notice: the file ends with a blank new line to avoid compiler warnings */

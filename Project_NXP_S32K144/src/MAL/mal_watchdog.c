@@ -4,15 +4,20 @@
 /*                        OBJECT SPECIFICATION                                */
 /*============================================================================*/
 /*!
- * $Source: gpio.c $
- * $Revision: version 5 $
+ * $Source: mal_watchdog.c $
+ * $Revision: version #6 $
  * $Author: Olvera Contreras Jorge Alberto, Luis Eduardo Archundia Picazzo  $
- * $Date: 30/10/17 $
+ * $Date: 03/10/17 $
  */
 /*============================================================================*/
 /* DESCRIPTION :                                                              */
 /** \file
-    MAL file to initialize and configure the gpio                             */
+     MAL file to initialize and configure the watchdog.
+
+    * Changed name of file in order to comply with naming convention
+      standards - 03/11/2017
+
+*/
 /*============================================================================*/
 /* COPYRIGHT (C) CONTINENTAL AUTOMOTIVE 2014                                  */
 /* AUTOMOTIVE GROUP, Interior Division, Body and Security                     */
@@ -28,21 +33,25 @@
 /*============================================================================*/
 /*                    REUSE HISTORY - taken over from                         */
 /*============================================================================*/
-/*    Author           |      Version       |       Description               */
+/*    Author        |      Version      |       Description                   */
 /*----------------------------------------------------------------------------*/
-/* Olvera Jorge      |           5        | MAL file to initialize          */
-/* Archundia Luis    |           5        | and configure the gpio            */
+/* Olvera Jorge     |         5         | APP file to enable/disable watchdog */
+/* Archundia Luis   |         5         | APP file to control the interrupts  */
+/* Luis Archundia   |         6         | File name modified to comply with   */
+/*		    |	                | naming convention standards.       */
 /*============================================================================*/
 /*                               OBJECT HISTORY                               */
 /*============================================================================*/
 /*
- * $Log: gpio.c  $
+ * $Log: mal_watchdog.c  $
   ============================================================================*/
 
 
 /* Includes */
 /*============================================================================*/
-#include "MAL/gpio.h"
+
+#include "MAL/mal_watchdog.h"
+
 
 
 /* Constants and types  */
@@ -73,45 +82,14 @@
 
 /* Exported functions */
 /*============================================================================*/
-void gpio_void_config_Pin_Out(S_GPIO_Type* PT, T_UWORD numbit){
-
-PT->PDDR |= 1<<numbit;
 
 
+void watchdog_void_config_watchdog(S_WDOG_Type * pWD, int CNT, int TOVAL, int CS ){
+	
+	pWD->CNT=CNT; /*Unlock watchdog*/
+	pWD->TOVAL=TOVAL; /*Maximum timeout value*/
+	pWD->CS = CS; /*Disable watchdog*/
+	
 }
 
-void gpio_void_config_Pin_Mux(S_PORT_Type * PORT, T_UWORD numbit, T_UWORD mux){
-
-	PORT->PCR[numbit] = mux; //0x00000100;
-
-}
-
-void gpio_void_config_Pin_Int(S_GPIO_Type* PT, T_UWORD numbit){
-
-	PT->PDDR &= ~(1<<numbit);
-}
-
-
-void gpio_void_io_Set_Pin(S_GPIO_Type* PT,T_UWORD numbit){
-	PT-> PSOR |= 1<<numbit;
-}
-
-void gpio_void_io_Clear_Pin(S_GPIO_Type* PT,T_UWORD numbit){
-	PT-> PCOR |= 1<<numbit;
-}
-
-T_UBYTE gpio_T_UBYTE_io_GetValue_Pin(S_GPIO_Type* PT,T_UWORD numbit){
-
-	if (PT->PDIR & (1<<numbit)){return 1;}
-	else{
-		return 0;
-	}
-}
-
-void gpio_void_clearFlag_interrPin(S_PORT_Type * pPORT,T_UWORD mask ){
-	pPORT->ISFR=mask;
-}
-
-
-
- /* Notice: the file ends with a blank new line to avoid compiler warnings */
+/* Notice: the file ends with a blank new line to avoid compiler warnings */

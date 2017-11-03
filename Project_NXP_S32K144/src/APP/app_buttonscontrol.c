@@ -13,8 +13,9 @@
 /* DESCRIPTION :                                                              */
 /** \file
     APP file to control the  buttons.
-    Changed name of file in order to comply with naming convention
-    standards - 03/11/2017
+
+    * Changed name of file in order to comply with naming convention
+      standards - 03/11/2017
 */
 /*============================================================================*/
 /* COPYRIGHT (C) CONTINENTAL AUTOMOTIVE 2014                                  */

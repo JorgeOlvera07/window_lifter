@@ -4,15 +4,19 @@
 /*                        OBJECT SPECIFICATION                                */
 /*============================================================================*/
 /*!
- * $Source: gpio.h $
- * $Revision: version #5 $
- * $Author: Jorge Alberto Olvera Contreras, Luis Eduardo Archundia Picazzo $
- * $Date: 30/10/2017 $
+ * $Source: mal_nvicinit.c $
+ * $Revision: version #6 $
+ * $Author: Olvera Contreras Jorge Alberto, Luis Eduardo Archundia Picazzo  $
+ * $Date: 03/11/2017 $
  */
 /*============================================================================*/
 /* DESCRIPTION :                                                              */
-/** \MAL file for General Purpose Input/Output enabling.
-    
+/** \file
+    MAL file to initialize and configure all nvic.
+
+    * Changed name of file in order to comply with naming convention
+      standards - 03/11/2017 
+
 */
 /*============================================================================*/
 /* COPYRIGHT (C) CONTINENTAL AUTOMOTIVE 2014                                  */
@@ -29,123 +33,66 @@
 /*============================================================================*/
 /*                    REUSE HISTORY - taken over from                         */
 /*============================================================================*/
-/*  AUTHOR             |      VERSION       |        DESCRIPTION              */
+/*    Author         |      Version      |       Description                  */
 /*----------------------------------------------------------------------------*/
-/*  Luis Archundia     |         5          |    MAL file GPIO enabling       */
-/*  Jorge Olvera       |         5          |    MAL file GPIO enabling       */
+/* Olvera Jorge      |         5         | APP file to control the interrupts */
+/* Archundia Luis    |         5         | APP file to control the interrupts */
+/* Luis Archundia    |         6         | File name modified to comply with  */
+/*		     |	                 | naming convention standards.       */
 /*============================================================================*/
 /*                               OBJECT HISTORY                               */
 /*============================================================================*/
 /*
- * $Log: gpio.h  $
+ * $Log: mal_nvicinit.c  $
   ============================================================================*/
-#ifndef GPIO_H
-#define GPIO_H
+
 
 /* Includes */
 /*============================================================================*/
-#include "S32K144.h"
-#include "MAL/namingconventions.h"
-/* Defines */
-/*============================================================================*/
-#define PTC0 0
-#define PTC1 1
-#define PTC2 2
-#define PTC3 3
-#define PTC4 4
-#define PTC5 5
-#define PTC6 6
-#define PTC7 7
-#define PTC8 8
-#define PTC9 9
-#define PTC10 10
-#define PTC11 11
-#define PTC12 12
-#define PTC13 13
-#define PTC14 14
-#define PTC15 15
-#define PTC16 16
-#define PTC17 17
+
+#include "MAL/mal_nvicinit.h"
 
 
-#define PTB0 0
-#define PTB1 1
-#define PTB2 2
-#define PTB3 3
-#define PTB4 4
-#define PTB5 5
-#define PTB6 6
-#define PTB7 7
-#define PTB8 8
-#define PTB9 9
-#define PTB10 10
-#define PTB11 11
-#define PTB12 12
-#define PTB13 13
-#define PTB14 14
-#define PTB15 15
-#define PTB16 16
-#define PTB17 17
-
-
-#define PTE0 0
-#define PTE1 1
-#define PTE2 2
-#define PTE3 3
-#define PTE4 4
-#define PTE5 5
-#define PTE6 6
-#define PTE7 7
-#define PTE8 8
-#define PTE9 9
-#define PTE10 10
-#define PTE11 11
-#define PTE12 12
-#define PTE13 13
-#define PTE14 14
-#define PTE15 15
-#define PTE16 16
-#define PTE17 17
-
-
-#define PTD0 0
-#define PTD1 1
-#define PTD2 2
-#define PTD3 3
-#define PTD4 4
-#define PTD5 5
-#define PTD6 6
-#define PTD7 7
-#define PTD8 8
-#define PTD9 9
-#define PTD10 10
-#define PTD11 11
-#define PTD12 12
-#define PTD13 13
-#define PTD14 14
-#define PTD15 15
-#define PTD16 16
-#define PTD17 17
-
-
-/* Constants and types */
+/* Constants and types  */
 /*============================================================================*/
 
 
-/* Exported Variables */
+
+/* Variables */
 /*============================================================================*/
 
 
-/* Exported functions prototypes */
+
+/* Private functions prototypes */
 /*============================================================================*/
 
-void gpio_void_config_Pin_Out(S_GPIO_Type* PT, T_UWORD numbit);
-void gpio_void_config_Pin_Mux(S_PORT_Type * PORT, T_UWORD numbit, T_UWORD mux);
-void gpio_void_config_Pin_Int(S_GPIO_Type* PT, T_UWORD numbit);
-void gpio_void_io_Set_Pin(S_GPIO_Type* PT,T_UWORD numbit);
-void gpio_void_io_Clear_Pin(S_GPIO_Type* PT,T_UWORD numbit);
-T_UBYTE gpio_T_UBYTE_io_GetValue_Pin(S_GPIO_Type* PT,T_UWORD numbit);
-void gpio_void_clearFlag_interrPin(S_PORT_Type * pPORT,T_UWORD mask );
 
 
-#endif  /* Notice: the file ends with a blank new line to avoid compiler warnings */
+/* Inline functions */
+/*============================================================================*/
+
+
+
+
+/* Private functions */
+/*============================================================================*/
+
+
+
+/* Exported functions */
+/*============================================================================*/
+
+
+void nvicinit_void_NVIC_init_IRQs (void) {
+
+	S32_NVIC->ICPR[1] = 1 << (48 % 32); /* IRQ48-LPIT0 ch0: clr any pending IRQ*/
+	S32_NVIC->ISER[1] = 1 << (48 % 32); /* IRQ48-LPIT0 ch0: enable IRQ */
+	S32_NVIC->IP[48] =0x0A; /* IRQ48-LPIT0 ch0: priority 10 of 0-15*/
+	S32_NVIC->ICPR[1] = 1 << (63 % 32); /* IRQ48-LPIT0 ch0: clr any pending IRQ*/
+	S32_NVIC->ISER[1] = 1 << (63 % 32); /* IRQ48-LPIT0 ch0: enable IRQ */
+	S32_NVIC->IP[63] =0x0C; /* IRQ48-LPIT0 ch0: priority 10 of 0-15*/
+
+}
+
+/* Notice: the file ends with a blank new line to avoid compiler warnings */
+

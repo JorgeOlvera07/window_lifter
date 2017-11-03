@@ -4,15 +4,20 @@
 /*                        OBJECT SPECIFICATION                                */
 /*============================================================================*/
 /*!
- * $Source: clocks.c $
- * $Revision: version 5 $
+ * $Source: mal_clocks.c $
+ * $Revision: version #6 $
  * $Author: Olvera Contreras Jorge Alberto, Luis Eduardo Archundia Picazzo$
- * $Date: 30/10/17 $
+ * $Date: 03/11/2017 $
  */
 /*============================================================================*/
 /* DESCRIPTION :                                                              */
 /** \file
-    MAL file to enable clocks
+    MAL file to enable clocks.
+
+    * Changed name of file in order to comply with naming convention
+      standards - 03/11/2017
+    
+    
 */
 /*============================================================================*/
 /* COPYRIGHT (C) CONTINENTAL AUTOMOTIVE 2014                                  */
@@ -29,22 +34,24 @@
 /*============================================================================*/
 /*                    REUSE HISTORY - taken over from                         */
 /*============================================================================*/
-/*  Author           |      Version       | Description                       */
+/*    Author         |      Version       |       Description                 */
 /*----------------------------------------------------------------------------*/
-/* Olvera Jorge      |           5        |   MAL file to enable clocks       */
-/* Archundia Luis    |           5        |                                   */
+/* Olvera Jorge      |           5        | MAL file to control the clocks    */
+/* Archundia Luis    |           5        | MAL file to control the clocks    */
+/* Luis Archundia    |           6        | File name modified to comply with */
+/*		     |	                  | naming convention standards.      */
 /*============================================================================*/
 /*                               OBJECT HISTORY                               */
 /*============================================================================*/
 /*
- * $Log: clocks.c  $
+ * $Log: mal_clocks.c  $
   ============================================================================*/
 
 
 /* Includes */
 /*============================================================================*/
 
-#include "MAL/clocks.h"
+#include "MAL/mal_clocks.h"
 
 
 /* Constants and types  */
