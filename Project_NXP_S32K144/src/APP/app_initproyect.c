@@ -4,15 +4,18 @@
 /*                        OBJECT SPECIFICATION                                */
 /*============================================================================*/
 /*!
- * $Source: buttonscontrol.c $
- * $Revision: version 5 $
+ * $Source: app_initproyect.c $
+ * $Revision: version #6 $
  * $Author: Olvera Contreras Jorge Alberto, Luis Eduardo Archundia Picazzo  $
- * $Date: 30/10/17 $
+ * $Date: 03/11/2017 $
  */
 /*============================================================================*/
 /* DESCRIPTION :                                                              */
 /** \file
-    APP file to control the  buttons
+    APP file to initialize all project.
+
+    * Changed name of file in order to comply with naming convention
+      standards - 03/11/2017
 */
 /*============================================================================*/
 /* COPYRIGHT (C) CONTINENTAL AUTOMOTIVE 2014                                  */
@@ -29,20 +32,23 @@
 /*============================================================================*/
 /*                    REUSE HISTORY - taken over from                         */
 /*============================================================================*/
-/*    Author           |      Version       |       Description               */
+/*    Author         |      Version       |       Description                 */
 /*----------------------------------------------------------------------------*/
-/* Olvera Jorge      |           5        | APP file to control             */
-/* Archundia Luis    |           5        | the buttons                       */
+/* Olvera Jorge      |           5        | APP file to control the indicators*/
+/* Archundia Luis    |           5        | APP file to control the indicators*/
+/* Luis Archundia    |           6        | File name modified to comply with */
+/*		     |	                  | naming convention standards.      */
 /*============================================================================*/
 /*                               OBJECT HISTORY                               */
 /*============================================================================*/
 /*
- * $Log: buttonscontrol.c  $
+ * $Log: app_initproyect.c  $
   ============================================================================*/
 
 /* Includes */
 /*============================================================================*/
-#include "APP/buttonscontrol.h"
+#include "APP/app_initproyect.h"
+
 
 
 /* Constants and types  */
@@ -72,19 +78,69 @@
 
 /* Exported functions */
 /*============================================================================*/
-T_UBYTE bc_T_UBYTE_statusButt_Up(){
+void ip_void_EnablePCC (void){
 
-	return (buttons_T_UBYTE_get_Button_Value(Button_PTC,UP_Button ));
-}
-
-T_UBYTE bc_T_UBYTE_statusButt_Down(){
-
-	return (buttons_T_UBYTE_get_Button_Value(Button_PTC,DOWN_Button ));
+	enableports_void_enable_PCC_Port(PCCPORTB); /* Enable clock for PORT B */
+	enableports_void_enable_PCC_Port(PCCPORTC); /* Enable clock for PORT C */
+	enableports_void_enable_PCC_Port(PCCPORTD); /* Enable clock for PORT D */
+	enableports_void_enable_PCC_Port(PCCPORTE); /* Enable clock for PORT E */
 
 }
 
-void bc_void_clearFlag_AntiPinch(){
-	buttons_void_clearFlag_antipinch(PORTE,PORT_ISFR_ISF_MASK);
+/* Enable desired interrupts and priorities */
+void ip_void_EnableNVIC (void){
+	enablenvic_void_NVIC_init_IRQs();
 }
+
+
+void ip_void_WindowInit (void){
+
+	windowleds_void_config_Led_Port(PTC,PORTC,WINDOW_LED1,0x00000100);
+	windowleds_void_config_Led_Port(PTB,PORTB,WINDOW_LED2,0x00000100);
+	windowleds_void_config_Led_Port(PTB,PORTB,WINDOW_LED3,0x00000100);
+	windowleds_void_config_Led_Port(PTB,PORTB,WINDOW_LED4,0x00000100);
+	windowleds_void_config_Led_Port(PTB,PORTB,WINDOW_LED5,0x00000100);
+	windowleds_void_config_Led_Port(PTC,PORTC,WINDOW_LED6,0x00000100);
+	windowleds_void_config_Led_Port(PTE,PORTE,WINDOW_LED7,0x00000100);
+	windowleds_void_config_Led_Port(PTE,PORTE,WINDOW_LED8,0x00000100);
+	windowleds_void_config_Led_Port(PTE,PORTE,WINDOW_LED9,0x00000100);
+	windowleds_void_config_Led_Port(PTE,PORTE,WINDOW_LED10,0x00000100);
+
+}
+
+
+void ip_void_IndicatorsInit (void){
+
+	indicator_void_config_indicator(INDICATOR_PTD,PORTD,UP_Indicator,0x00000100);
+	indicator_void_config_indicator(INDICATOR_PTD,PORTD,DOWN_Indicator,0x00000100);
+	indicator_void_set_indicator(INDICATOR_PTD,UP_Indicator );
+	indicator_void_set_indicator(INDICATOR_PTD,DOWN_Indicator);
+
+}
+
+void ip_void_ButtonsInit (void){
+
+buttons_void_config_Buttons_Port(Button_PTC,PORTC,DOWN_Button,0x00000110);
+buttons_void_config_Buttons_Port(Button_PTC,PORTC,UP_Button,0x00000110);
+buttons_void_config_Buttons_Port(PTE,PORTE,PTE1,0x10C0110);
+
+}
+
+
+void ip_void_LPIT0Timer_init (void) {
+
+	timer_void_initLPIT0_Timer(PCC, LPIT0,6, PCC_PCCn_CGC_MASK,  0x00000001);
+
+}
+
+void ip_void_EnableClocksandModes (void){
+
+	enableclc_vod_init_ClocksandModes();
+}
+
+void ip_void_DisableWatchdog(){
+	initwd_void_initWatchdog(WDOG,maskcnt,masktoval,maskcs);
+}
+
 
  /* Notice: the file ends with a blank new line to avoid compiler warnings */

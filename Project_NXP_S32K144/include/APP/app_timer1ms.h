@@ -4,14 +4,19 @@
 /*                        OBJECT SPECIFICATION                                */
 /*============================================================================*/
 /*!
- * $Source: windowcontrol.h $
- * $Revision: version #5 $
+ * $Source: app_timer1ms.h $
+ * $Revision: version #6 $
  * $Author: Jorge Alberto Olvera Contreras, Luis Eduardo Archundia Picazzo $
- * $Date: 30/10/2017 $
+ * $Date: 03/11/2017 $
  */
 /*============================================================================*/
 /* DESCRIPTION :                                                              */
-/** \APP file for window control interface.
+/** \APP file for 1ms counter enabling.
+
+    * Changed name of file in order to comply with naming convention
+      standards - 03/11/2017
+
+
     
 */
 /*============================================================================*/
@@ -29,24 +34,35 @@
 /*============================================================================*/
 /*                    REUSE HISTORY - taken over from                         */
 /*============================================================================*/
-/*  AUTHOR           |    VERSION   |              DESCRIPTION                */
+/*  AUTHOR             |    VERSION    |            DESCRIPTION               */
 /*----------------------------------------------------------------------------*/
-/*  Luis Archundia   |       5      | APP file for window control interface.  */
-/*  Jorge Olvera     |       5      | APP file for window control interface.  */
+/*  Luis Archundia     |       5       |  APP file for button control config. */
+/*  Jorge Olvera       |       5       |  APP file for button control config. */
+/*  Luis Archundia     |       6       |  File name modified to comply with   */
+/*		       |	       |  naming convention standards.        */
 /*============================================================================*/
 /*                               OBJECT HISTORY                               */
 /*============================================================================*/
 /*
- * $Log: windowcontrol.h  $
+ * $Log: app_timer1ms.h  $
   ============================================================================*/
-//#ifndef FILENAME_H
-//#define FILENAME_H
+#ifndef TIMER1MS_H
+#define TIMER1MS_H
 
 /* Includes */
 /*============================================================================*/
-//#include "S32K144.h" /* include peripheral declarations S32K144 */
-//#include "MAL/gpio.h"
-#include "HAL/windowleds.h"
+#include "HAL/timer.h"
+
+/* Defines */
+/*============================================================================*/
+#define _1ms 1
+#define _10ms 10
+#define _500ms 500
+#define _400ms 400
+#define _1000ms 1000
+#define _3000ms 3000
+#define _5000ms 5000
+
 
 /* Constants and types */
 /*============================================================================*/
@@ -58,8 +74,9 @@
 
 /* Exported functions prototypes */
 /*============================================================================*/
-void wc_void_ControlWindowUp (T_UBYTE * porcent);
-void wc_void_ControlWindowDown (T_UBYTE * porcent);
+void tmr1ms_void_initTimer1ms();
+void tmr1ms_void_EnableTimer1ms ();
+void tmr1ms_void_DisableTimer1ms ();
+void tmr1ms_void_clearFlagTimer1ms();
 
-
-//#endif  /* Notice: the file ends with a blank new line to avoid compiler warnings */
+#endif  /* Notice: the file ends with a blank new line to avoid compiler warnings */

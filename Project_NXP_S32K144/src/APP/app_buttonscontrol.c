@@ -4,15 +4,17 @@
 /*                        OBJECT SPECIFICATION                                */
 /*============================================================================*/
 /*!
- * $Source: windowcontrol.c $
- * $Revision: version 5 $
+ * $Source: app_buttonscontrol.c $
+ * $Revision: version #6 $
  * $Author: Olvera Contreras Jorge Alberto, Luis Eduardo Archundia Picazzo  $
- * $Date: 30/10/17 $
+ * $Date: 03/11/2017 $
  */
 /*============================================================================*/
 /* DESCRIPTION :                                                              */
 /** \file
-   APP file to control the window
+    APP file to control the  buttons.
+    Changed name of file in order to comply with naming convention
+    standards - 03/11/2017
 */
 /*============================================================================*/
 /* COPYRIGHT (C) CONTINENTAL AUTOMOTIVE 2014                                  */
@@ -29,20 +31,22 @@
 /*============================================================================*/
 /*                    REUSE HISTORY - taken over from                         */
 /*============================================================================*/
-/*    Author           |      Version       |       Description               */
+/*    Author         |      Version       |       Description                 */
 /*----------------------------------------------------------------------------*/
-/* Olvera Jorge        |           5        | APP file to control             */
-/* Archundia Luis      |           5        | the window                      */
+/* Olvera Jorge      |           5        | APP file to control the buttons   */
+/* Archundia Luis    |           5        | APP file to control the buttons   */
+/* Luis Archundia    |           6        | File name modified to comply with */
+/*		     |	                  | naming convention standards.      */
 /*============================================================================*/
 /*                               OBJECT HISTORY                               */
 /*============================================================================*/
 /*
- * $Log: windowcontrol.c  $
+ * $Log: app_buttonscontrol.c  $
   ============================================================================*/
 
 /* Includes */
 /*============================================================================*/
-#include "APP/windowcontrol.h"
+#include "APP/app_buttonscontrol.h"
 
 
 /* Constants and types  */
@@ -72,58 +76,19 @@
 
 /* Exported functions */
 /*============================================================================*/
-void wc_void_ControlWindowUp (T_UBYTE * percent){
+T_UBYTE bc_T_UBYTE_statusButt_Up(){
 
-
-	switch ((*percent)){
-
-		case 1: windowleds_void_openBit_Window(WINDOW_PTC,WINDOW_LED1); /* clear Output on port D16 (on) */   break;
-		case 2: windowleds_void_openBit_Window(WINDOW_PTB,WINDOW_LED2); /* clear Output on port D16 (on) */   break;
-		case 3: windowleds_void_openBit_Window(WINDOW_PTB,WINDOW_LED3); /* clear Output on port D16 (on) */   break;
-		case 4: windowleds_void_openBit_Window(WINDOW_PTB,WINDOW_LED4); /* clear Output on port D16 (on) */   break;
-		case 5: windowleds_void_openBit_Window(WINDOW_PTB,WINDOW_LED5); /* clear Output on port D16 (on) */   break;
-		case 6: windowleds_void_openBit_Window(WINDOW_PTC,WINDOW_LED6); /* clear Output on port D16 (on) */   break;
-		case 7: windowleds_void_openBit_Window(WINDOW_PTE,WINDOW_LED7); /* clear Output on port D16 (on) */  break;
-		case 8: windowleds_void_openBit_Window(WINDOW_PTE,WINDOW_LED8); /* clear Output on port D16 (on) */  break;
-		case 9: windowleds_void_openBit_Window(WINDOW_PTE,WINDOW_LED9); /* clear Output on port D16 (on) */  break;
-		case 10: windowleds_void_openBit_Window(WINDOW_PTE,WINDOW_LED10); /* clear Output on port D16 (on) */  break;
-		default:
-				if(*percent>10){
-					*percent=10;
-				}
-				if(*percent<1){
-					*percent=1;
-				}
-		break;
-	}
+	return (buttons_T_UBYTE_get_Button_Value(Button_PTC,UP_Button ));
 }
 
+T_UBYTE bc_T_UBYTE_statusButt_Down(){
 
-void wc_void_ControlWindowDown (T_UBYTE * percent){
+	return (buttons_T_UBYTE_get_Button_Value(Button_PTC,DOWN_Button ));
 
-	switch ((*percent)){
-
-		case 1: windowleds_void_closeBit_Window(WINDOW_PTC,WINDOW_LED1); /* set Output on port D16 (off) */   break;
-		case 2: windowleds_void_closeBit_Window(WINDOW_PTB,WINDOW_LED2); /* set Output on port D16 (off) */   break;
-		case 3: windowleds_void_closeBit_Window(WINDOW_PTB,WINDOW_LED3); /* set Output on port D16 (off) */   break;
-		case 4: windowleds_void_closeBit_Window(WINDOW_PTB,WINDOW_LED4); /* set Output on port D16 (off) */   break;
-		case 5: windowleds_void_closeBit_Window(WINDOW_PTB,WINDOW_LED5); /* set Output on port D16 (off) */   break;
-		case 6: windowleds_void_closeBit_Window(WINDOW_PTC,WINDOW_LED6); /* set Output on port D16 (off) */   break;
-		case 7: windowleds_void_closeBit_Window(WINDOW_PTE,WINDOW_LED7); /* set Output on port D16 (off) */  break;
-		case 8: windowleds_void_closeBit_Window(WINDOW_PTE,WINDOW_LED8); /* set Output on port D16 (off) */  break;
-		case 9: windowleds_void_closeBit_Window(WINDOW_PTE,WINDOW_LED9); /* set Output on port D16 (off) */  break;
-		case 10: windowleds_void_closeBit_Window(WINDOW_PTE,WINDOW_LED10); /* set Output on port D16 (off) */  break;
-		default:
-			if(*percent>10){
-				*percent=10;
-			}
-			if(*percent<1){
-				*percent=1;
-			}
-		break;
-	}
 }
 
-
+void bc_void_clearFlag_AntiPinch(){
+	buttons_void_clearFlag_antipinch(PORTE,PORT_ISFR_ISF_MASK);
+}
 
  /* Notice: the file ends with a blank new line to avoid compiler warnings */

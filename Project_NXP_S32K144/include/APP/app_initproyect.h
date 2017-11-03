@@ -4,14 +4,17 @@
 /*                        OBJECT SPECIFICATION                                */
 /*============================================================================*/
 /*!
- * $Source: buttonscontrol.h $
- * $Revision: version #5 $
+ * $Source: app_intiproyect.h $
+ * $Revision: version #6 $
  * $Author: Jorge Alberto Olvera Contreras, Luis Eduardo Archundia Picazzo $
- * $Date: 30/10/2017 $
+ * $Date: 03/11/2017 $
  */
 /*============================================================================*/
 /* DESCRIPTION :                                                              */
-/** \APP file for button control config.
+/** \APP file for module's initialization.
+
+    * Changed name of file in order to comply with naming convention
+      standards - 03/11/2017
     
 */
 /*============================================================================*/
@@ -33,19 +36,29 @@
 /*----------------------------------------------------------------------------*/
 /*  Luis Archundia     |       5       |  APP file for button control config. */
 /*  Jorge Olvera       |       5       |  APP file for button control config. */
+/*  Luis Archundia     |       6       |  File name modified to comply with   */
+/*		       |	       |  naming convention standards.        */
 /*============================================================================*/
 /*                               OBJECT HISTORY                               */
 /*============================================================================*/
 /*
- * $Log: buttonscontrol.h  $
+ * $Log: app_intproyect.h  $
   ============================================================================*/
-#ifndef BUTTONSCONTROL_H
-#define BUTTONSCONTROL_H
+#ifndef INITPROYECT_H
+#define INITPROYECT_H
 
 /* Includes */
 /*============================================================================*/
-#include "HAL/buttons.h"
+#include "S32K144.h"
 
+#include "HAL/buttons.h"
+#include "HAL/windowleds.h"
+#include "HAL/indicators.h"
+#include "HAL/timer.h"
+#include "HAL/enableports.h"
+#include "HAL/enableclc.h"
+#include "HAL/enablenvic.h"
+#include "HAL/initwd.h"
 /* Constants and types */
 /*============================================================================*/
 
@@ -56,9 +69,15 @@
 
 /* Exported functions prototypes */
 /*============================================================================*/
-T_UBYTE bc_T_UBYTE_statusButt_Up();
-T_UBYTE bc_T_UBYTE_statusButt_Down();
-void bc_void_clearFlag_AntiPinch();
+
+void ip_void_LPIT0Timer_init (void);
+void ip_void_WindowInit (void);
+void ip_void_IndicatorsInit (void);
+void ip_void_EnablePCC (void);
+void ip_void_ButtonsInit (void);
+void ip_void_EnableClocksandModes (void);
+void ip_void_EnableNVIC(void);
+void ip_void_DisableWatchdog(void);
 
 
 #endif  /* Notice: the file ends with a blank new line to avoid compiler warnings */

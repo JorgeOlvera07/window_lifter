@@ -4,15 +4,19 @@
 /*                        OBJECT SPECIFICATION                                */
 /*============================================================================*/
 /*!
- * $Source: timer1ms.c $
- * $Revision: version 5 $
- * $Author: Olvera Contreras Jorge Alberto, Luis Eduardo Archundia Picazzo  $
- * $Date: 30/10/17 $
+ * $Source: app_buttonscontrol.h $
+ * $Revision: version #6 $
+ * $Author: Jorge Alberto Olvera Contreras, Luis Eduardo Archundia Picazzo $
+ * $Date: 03/11/2017 $
  */
 /*============================================================================*/
 /* DESCRIPTION :                                                              */
-/** \file
-    APP file to use the timer lpit ch0
+/** \APP file for button control config.
+     
+    * Changed name of file in order to comply with naming convention
+      standards - 03/11/2017
+
+    
 */
 /*============================================================================*/
 /* COPYRIGHT (C) CONTINENTAL AUTOMOTIVE 2014                                  */
@@ -29,65 +33,38 @@
 /*============================================================================*/
 /*                    REUSE HISTORY - taken over from                         */
 /*============================================================================*/
-/*    Author           |      Version       |       Description               */
+/*  AUTHOR             |    VERSION    |            DESCRIPTION               */
 /*----------------------------------------------------------------------------*/
-/* Olvera Jorge      |           5        | APP file to use                   */
-/* Archundia Luis    |           5        | the timer lpit ch0                */
+/*  Luis Archundia     |       5       |  APP file for button control config. */
+/*  Jorge Olvera       |       5       |  APP file for button control config. */
+/*  Luis Archundia     |       6       |  File name modified to comply with   */
+/*		       |	       |  naming convention standards.        */
 /*============================================================================*/
 /*                               OBJECT HISTORY                               */
 /*============================================================================*/
 /*
- * $Log: timer1ms.c  $
+ * $Log: app_buttonscontrol.h  $
   ============================================================================*/
+#ifndef BUTTONSCONTROL_H
+#define BUTTONSCONTROL_H
 
 /* Includes */
 /*============================================================================*/
-#include "APP/timer1ms.h"
+#include "HAL/buttons.h"
 
-
-/* Constants and types  */
+/* Constants and types */
 /*============================================================================*/
 
 
-
-/* Variables */
+/* Exported Variables */
 /*============================================================================*/
 
 
-
-/* Private functions prototypes */
+/* Exported functions prototypes */
 /*============================================================================*/
+T_UBYTE bc_T_UBYTE_statusButt_Up();
+T_UBYTE bc_T_UBYTE_statusButt_Down();
+void bc_void_clearFlag_AntiPinch();
 
 
-
-/* Inline functions */
-/*============================================================================*/
-
-
-
-
-/* Private functions */
-/*============================================================================*/
-
-
-
-/* Exported functions */
-/*============================================================================*/
-
-void tmr1ms_void_initTimer1ms(){
-	timer_void_configTime(LPIT0,40000);
-}
-
-void tmr1ms_void_EnableTimer1ms (){
-	timer_void_enable_Timer(LPIT0,40000);
-}
-
-void tmr1ms_void_DisableTimer1ms (){
-	timer_void_disable_Timer(LPIT0);
-}
-
-void tmr1ms_void_clearFlagTimer1ms(){
-	timer_void_clearFlag_lpitCh0(LPIT0,LPIT_MSR_TIF0_MASK);
-}
-
- /* Notice: the file ends with a blank new line to avoid compiler warnings */
+#endif  /* Notice: the file ends with a blank new line to avoid compiler warnings */
