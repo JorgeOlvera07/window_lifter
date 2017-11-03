@@ -1,0 +1,431 @@
+
+
+TESTING TEAM:          GUILLERFMO HERNÁNDEZ  / MANUEL HERNÁNDEZ
+DATE:        	       01/11/2017
+TIME(24HR):            12:13
+# OF TESTS PERFORMED:  08
+TOTAL TESTING 
+TIME ELAPSED: 	       10 minutes
+
+
+ID-TEST NAME:          01-I/O TEST.
+
+Status:      	       PASS
+
+Comments:              *
+	               
+
+	              
+ID-TEST NAME:          02-TIME CONSTR. VAL.
+
+Status:      	       UN-SPEC. (Missing value tolerances and manual start response) 
+
+Comments:              * 4s between state transitions in either Auto UP/Down mode (400 ms with high level time measurement)
+	               * Good time validation for debouncing and automatic mode response detection (Auto UP/DOWN mode)
+	               * 4s between transitions in manual Auto UP/Down mode (400 ms with high level time measurement)
+
+
+
+ID-TEST NAME:          03-ANTI-PINCH TEST
+
+Status:      	       FAILED
+
+Comments:              * 5s communication cut off work fine (according to a 5s high level time measurement).
+		       * If both manual up and anti-pinch active, emulation gets stuck until manual up is released, 
+		         then another led turns ON. anti-pinch routine will be performed after. 
+
+
+
+ID-TEST NAME:          04-AUTO.DOWN TEST
+
+Status:      	       PASS
+
+Comments:              * Everything seems to work correctly in automatic down mode.
+
+
+
+ID-TEST NAME:          05-AUTO. UP TEST
+
+Status:      	       PASS
+
+Comments:              * Everything seems to work correctly in automatic up mode.
+
+
+
+ID-TEST NAME:          06-MAN. DOWN TEST
+
+Status:      	       UN-SPECIFIED
+
+Comments:              * Time addition between button validation (for manual down mode) and state-transition time (for ledBar) constraints seem to be happening,
+		       	 total time for ledBar's first state transition = 500 ms + 400 ms = 900 ms. 
+
+
+
+ID-TEST NAME:          07-MAN. UP TEST
+
+Status:      	       UN-SPECIFIED
+
+Comments:              * Time addition between button validation (for manual up mode) and state-transition time (for ledBar) constraints seem to be happening,
+		       	 total time for ledBar's first state transition = 500 ms + 400 ms = 900 ms. 
+
+
+
+
+ID-TEST NAME:          08-BUTT. COMBIN. TEST
+
+Status:      	       FAILED
+
+Comments:              * If both Button down and Anti-pinch button pressed simultaneously, program gets stuck and only indicators
+
+
+
+========================================================================================================================================================================
+
+
+
+TESTING TEAM:          RODRIGO MORTERA / RAFAÉL SÁNCHEZ
+DATE:        	       01/11/2017
+TIME(24HR):            14:12
+# OF TESTS PERFORMED:  08
+TOTAL TESTING 
+TIME ELAPSED: 	       23 minutes
+
+
+ID-TEST NAME:          01-I/O TEST.
+
+Status:      	       PASS
+
+Comments:              *
+
+
+ID-TEST NAME:          02-TIME CONSTR. VAL.
+
+Status:      	       UN-SPEC. (Missing value tolerances and manual start response) 
+
+Comments:              * 4s between state transitions in either Auto UP/Down mode (400 ms with high level time measurement)
+	               * Good time validation for debouncing and automatic mode response detection (Auto UP/DOWN mode)
+	               * 4s between transitions in manual Auto UP/Down mode (400 ms with high level time measurement)
+			
+
+
+
+ID-TEST NAME:          03-ANTI-PINCH TEST
+
+Status:      	       FAILED
+
+Comments:              * Program gets stuck if any button is pressed while performing the anti-pinch routine.
+		       * If both manual up and anti-pinch active window will keep going up until release and interrupt routine will be performed
+		         afterwards.
+		       * Anti-pinch doesn't cut communication completely off during the whole 5 second time window.
+		       * If while anti-pinch subroutine is being performed and at any time the up window button is pressed, the window freezes in its
+		         current position.
+		       * Anti-pinch activates while window moves downwards.
+		  
+
+ID-TEST NAME:          04-AUTO.DOWN TEST
+
+Status:      	       UN-SPECIFIED
+
+Comments:              * If while autodown is being performed and up button is pressed, then window interrupts the original task and executes the newest one.
+
+
+ID-TEST NAME:          05-AUTO. UP TEST
+
+Status:      	       PASS
+
+Comments:              * If while autodown is being performed and up button is pressed, then window interrupts the original task and executes the newest one.
+
+
+ID-TEST NAME:          06-MAN. DOWN TEST
+
+Status:      	       UN-SPECIFIED
+
+Comments:              * If while in manual down mode, manual up or auto up is pressed the window will keep on moving downwards. 
+
+
+ID-TEST NAME:          07-MAN. UP TEST
+
+Status:      	       UN-SPECIFIED
+
+Comments:              * If while in manual up mode manual down or auto down is pressed the window will keep on moving upwards.
+
+
+ID-TEST NAME:          08-BUTT. COMBIN. TEST
+
+Status:      	       FAILED
+
+Comments:              * If both Button down and Anti-pinch button pressed simultaneously, program gets stuck and only indicators work but no 
+		         other action is performed.
+
+
+
+========================================================================================================================================================================
+
+
+
+TESTING TEAM:          CARLOS MARTÍNEZ / GEORGINA SALAZAR
+DATE:        	       01/11/2017
+TIME(24HR):            15:30
+# OF TESTS PERFORMED:  08
+TOTAL TESTING 
+TIME ELAPSED: 	       10 minutes
+
+
+ID-TEST NAME:          01-I/O TEST.
+
+Status:      	       PASS
+
+Comments:              *
+
+
+ID-TEST NAME:          02-TIME CONSTR. VAL.
+
+Status:      	       UN-SPEC. (Missing value tolerances and manual start response) 
+
+Comments:              * 4 SECS CORRECT
+	               * 500 MS CORRECT
+	               * 0.96 FOR MANUAL 
+			
+
+
+
+ID-TEST NAME:          03-ANTI-PINCH TEST
+
+Status:      	       FAILED
+
+Comments:              * WHILE MOVING UP THE ANTIPINCH INTERRUPT IS NOT WORKING CORRECTLY.
+		       * 5 SECOND DELAY WORKS PROPERLY
+		       * ANTI-PINCH ACTIVATES EVEN THE WINDOW IS NOT MOVING IN ANY DIRECTION.
+		       * ANTI-PINCH OUTPUTS A CLEAR BLUE LIGHT ON RGB LED
+		       * 
+		  
+
+ID-TEST NAME:          04-AUTO.DOWN TEST
+
+Status:      	       PASS
+
+Comments:              * Automatic down works properly
+
+
+ID-TEST NAME:          05-AUTO. UP TEST
+
+Status:      	       PASS
+
+Comments:              * Automatic up functionality works properly
+
+
+ID-TEST NAME:          06-MAN. DOWN TEST
+
+Status:      	       PASS
+
+Comments:              *  Manual down functionality works properly
+
+
+ID-TEST NAME:          07-MAN. UP TEST
+
+Status:      	       PASS
+
+Comments:              * Manual up functionality works properly
+
+
+ID-TEST NAME:          08-BUTT. COMBIN. TEST
+
+Status:      	       FAILED
+
+Comments:              * Anti-pinch functionality works whenever button #3 is pressed, seems not to be evaluating a logical condition.
+
+
+
+=========================================================================================================================================================================
+
+
+
+TESTING TEAM:          ANTONIO VÁZQUEZ / JORGE ACEVEDO
+DATE:        	       01/11/2017
+TIME(24HR):            15:52
+# OF TESTS PERFORMED:  08
+TOTAL TESTING 
+TIME ELAPSED: 	       minutes
+
+
+ID-TEST NAME:          01-I/O TEST.
+
+Status:      	       PASS
+
+Comments:              *
+
+
+ID-TEST NAME:          02-TIME CONSTR. VAL.
+
+Status:      	       UN-SPEC. (Missing value tolerances and manual start response) 
+
+Comments:              * MANUAL UP 4.63 SEGU. BIEN CLOSE
+	               * 4.18  GO DOWN GOOD TRANSITIONS
+	               * Times for auto up work good too 
+			
+
+
+
+ID-TEST NAME:          03-ANTI-PINCH TEST
+
+Status:      	       FAILED
+
+Comments:              * if manual up and antipinch active, but manual up kept being pressed, then anti-pinch doesn't work
+		       * if auto up, then antipinch activate, and up button pressed again, then anti-pinch routine gets interrupted and won't perform correctly.
+		       * Anti-pinch activates even when window moves down. 
+		  
+
+ID-TEST NAME:          04-AUTO.DOWN TEST
+
+Status:      	       PASS
+
+Comments:              * Works properly if anti-pinch is not pressed.
+		       * Doesn't work correctly if anti-pinch button is pressed.
+
+
+ID-TEST NAME:          05-AUTO. UP TEST
+
+Status:      	       PASS
+
+Comments:              * Works correctly
+
+
+ID-TEST NAME:          06-MAN. DOWN TEST
+
+Status:      	       PASS
+
+Comments:              * Anti-pinch interference.
+		       * Manual down test works correctly.
+
+
+ID-TEST NAME:          07-MAN. UP TEST
+
+Status:      	       PASS
+
+Comments:              * Works correctly although
+d
+
+ID-TEST NAME:          08-BUTT. COMBIN. TEST
+
+Status:      	       FAILED
+
+Comments:              * if down + antipinch a clear blue output activates in RGB LED. considered a fault since it is not in the requirements.
+
+
+
+========================================================================================================================================================================
+
+
+
+TESTING TEAM:          ALEJANDRO APEZ / ESTEFANÍA LÓPEZ
+DATE:        	       01/11/2017
+TIME(24HR):            16:19
+# OF TESTS PERFORMED:  08
+TOTAL TESTING 
+TIME ELAPSED: 	       11 minutes
+
+
+ID-TEST NAME:          01-I/O TEST.
+
+Status:      	       PASS
+
+Comments:              *
+
+
+ID-TEST NAME:          02-TIME CONSTR. VAL.
+
+Status:      	       UN-SPEC. (Missing value tolerances and manual start response) 
+
+Comments:              * Program seems to work fine with time constraints concerning de-bounce, state transitions in ledBar and
+		         mode validation.
+
+			
+ID-TEST NAME:          03-ANTI-PINCH TEST
+
+Status:      	       FAILED
+
+Comments:              * If while auto-down + anti-pinch simultaneously and then up button is pressed, then the window gets stuck.
+		   
+		  
+ID-TEST NAME:          04-AUTO.DOWN TEST
+
+Status:      	       PASS
+
+Comments:              * Program seems to work fine if antipinch functionality is not called to action.
+		       * Interference with anti-pinch functionality.
+		   
+
+ID-TEST NAME:          05-AUTO. UP TEST
+
+Status:      	       PASS
+
+Comments:              * Program seems to work fine.
+
+
+ID-TEST NAME:          06-MAN. DOWN TEST
+
+Status:      	       PASS
+
+Comments:              * Program seems to work fine if antipinch functionality is not called to action.
+		       * Interference with anti-pinch functionality. 
+		       
+
+ID-TEST NAME:          07-MAN. UP TEST
+
+Status:      	       PASS
+
+Comments:              * Program seems to work fine.
+
+
+ID-TEST NAME:          08-BUTT. COMBIN. TEST
+
+Status:      	       FAILED
+
+Comments:              * if down + antipinch a clear blue output activates in RGB LED. considered a fault since it is not in the requirements.
+
+
+
+========================================================================================================================================================================
+
+
+
+TESTING TEAM:          JORGE OLVERA / LUIS ARCHUNDIA
+DATE:        	       01/11/2017
+TIME(24HR):            16:01
+# OF TESTS PERFORMED:  04
+TOTAL TESTING 
+TIME ELAPSED: 	       16 minutes
+
+
+ID-TEST NAME:          09-Digital Output Debounce Test @ < 10ms
+
+Status:      	       PASS
+
+Comments:              * Debounce for button press validation works properly.
+
+
+ID-TEST NAME:          10-Digital Output One-touch Validation Test @ < 500ms
+
+Status:      	       PASS 
+
+Comments:              * One-touch button press validation works properly.
+
+			
+ID-TEST NAME:          11-Digital Output Manual Validation Test @ <= 600ms
+
+Status:      	       UN-SPECIFIED
+
+Comments:              * Manual button press validation does not work properly with this time constraint.
+		       * In manual mode, the module waits to add the 500+ ms time constraint along with the 400ms time constraint with the
+		         ledBar's state transition.
+		       * Assumption proven with the next test: test ID xx - Digital Output Manual @ <= 900ms
+		   
+		  
+ID-TEST NAME:          12-Digital Output Manual @ <= 900ms
+
+Status:      	       PASS
+
+Comments:              * Both manual modes work only by adding the 400ms ledBar time transition constraint to the 500ms button validation
+                         mode constraint.
+
+
