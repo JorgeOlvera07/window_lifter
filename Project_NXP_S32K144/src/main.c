@@ -1,9 +1,9 @@
 
-#include "APP/initproyect.h"
-#include "APP/windowcontrol.h"
-#include "APP/buttonscontrol.h"
-#include "APP/indicatorscontrol.h"
-#include "APP/timer1ms.h"
+#include "APP/app_initproyect.h"
+#include "APP/app_windowcontrol.h"
+#include "APP/app_buttonscontrol.h"
+#include "APP/app_indicatorscontrol.h"
+#include "APP/app_timer1ms.h"
 
 typedef struct {
 
