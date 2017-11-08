@@ -12,6 +12,7 @@ typedef struct {
 	T_UBYTE bi1_FlagOneTouchUp:1;
 	T_UBYTE bi1_FlagOneTouchDown:1;
 	T_UBYTE bi1_FlagAntipinch:1;
+	T_UBYTE bi1_FlagUp:1;
 
 }S_Structflags;
 
@@ -57,6 +58,7 @@ int main(void) {
 
 				 if ( ((ruw_lpit0_ch0_counter1ms<_500ms)&&bc_T_UBYTE_statusButt_Up())|| (rs_Fg.bi1_FlagwindowUp==1) ){ /* one touch  up*/
 					 rs_Fg.bi1_FlagOneTouchUp=1;
+					 rs_Fg.bi1_FlagUp=1;
 
 					 while(bc_T_UBYTE_statusButt_Up()){/* semiautomatic up */
 						 if((ruw_lpit0_ch0_counter1ms>_500ms)){
@@ -118,6 +120,7 @@ int main(void) {
 
 				 } /* one touch  up*/
 
+				 rs_Fg.bi1_FlagUp=0;
 
 		         }  /* valid button press up */
 
@@ -158,7 +161,7 @@ int main(void) {
 
 						 if (rs_Fg.bi1_FlagOneTouchDown){  /* one touch  down*/
 
-							 if(rs_Fg.bi1_FlagAntipinch){ic_void_offIndicator_Up();ic_void_offIndicator_Down();}
+							 if(rs_Fg.bi1_FlagAntipinch){ic_void_offIndicator_Up();ic_void_onIndicator_Down();}
 
 							 rs_Fg.bi1_FlagwindowDown=0;
 							 rs_Fg.bi1_FlagOneTouchDown=0;
@@ -187,6 +190,7 @@ int main(void) {
 					 		}
 
 					 		if(rs_Fg.bi1_FlagAntipinch){
+								ic_void_offIndicator_Down();
 					 			tmr1ms_void_DisableTimer1ms ();
 					 			rs_Fg.bi1_FlagAntipinch=0;
 					 			ruw_lpit0_ch0_counter1ms=0;
@@ -229,10 +233,24 @@ void LPIT0_Ch0_IRQHandler (void) {
 
 void PORTE_IRQHandler (void) {
 
-	rs_Fg.bi1_FlagwindowDown=1;
-	rs_Fg.bi1_FlagAntipinch=1;
+	if(rs_Fg.bi1_FlagUp){
 
-	ic_void_onIndicator_Up();
+		rs_Fg.bi1_FlagwindowDown=1;
+
+		rs_Fg.bi1_FlagAntipinch=1;
+
+		ic_void_onIndicator_Down();
+		ic_void_offIndicator_Up();
+
+	}
+
+	else{
+
+		rs_Fg.bi1_FlagAntipinch=0;
+
+	}
+
+
 	bc_void_clearFlag_AntiPinch();
 
 }
