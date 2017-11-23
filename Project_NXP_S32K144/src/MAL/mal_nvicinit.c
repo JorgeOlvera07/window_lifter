@@ -88,9 +88,12 @@ void nvicinit_void_NVIC_init_IRQs (void) {
 	S32_NVIC->ICPR[1] = 1 << (48 % 32); /* IRQ48-LPIT0 ch0: clr any pending IRQ*/
 	S32_NVIC->ISER[1] = 1 << (48 % 32); /* IRQ48-LPIT0 ch0: enable IRQ */
 	S32_NVIC->IP[48] =0x0A; /* IRQ48-LPIT0 ch0: priority 10 of 0-15*/
-	S32_NVIC->ICPR[1] = 1 << (63 % 32); /* IRQ48-LPIT0 ch0: clr any pending IRQ*/
-	S32_NVIC->ISER[1] = 1 << (63 % 32); /* IRQ48-LPIT0 ch0: enable IRQ */
-	S32_NVIC->IP[63] =0x0C; /* IRQ48-LPIT0 ch0: priority 10 of 0-15*/
+
+	/*
+	S32_NVIC->ICPR[1] = 1 << (63 % 32);
+	S32_NVIC->ISER[1] = 1 << (63 % 32);
+	S32_NVIC->IP[63] =0x0C;
+	*/
 
 }
 

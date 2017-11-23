@@ -37,7 +37,8 @@
 /*  Luis Archundia     |       5       |  APP file for button control config. */
 /*  Jorge Olvera       |       5       |  APP file for button control config. */
 /*  Luis Archundia     |       6       |  File name modified to comply with   */
-/*		       |	       |  naming convention standards.        */
+/*	Jorge Olvera	   |	   7       |  naming convention standards.        */
+/*   Olvera Jorge      |       8       | File name modified to comply with */
 /*============================================================================*/
 /*                               OBJECT HISTORY                               */
 /*============================================================================*/
@@ -49,7 +50,7 @@
 
 /* Includes */
 /*============================================================================*/
-#include "HAL/indicators.h"
+#include "HAL/hal_indicators.h"
 
 /* Constants and types */
 /*============================================================================*/

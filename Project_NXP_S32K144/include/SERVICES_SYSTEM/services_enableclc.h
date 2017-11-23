@@ -4,18 +4,14 @@
 /*                        OBJECT SPECIFICATION                                */
 /*============================================================================*/
 /*!
- * $Source: app_buttonscontrol.h $
- * $Revision: version #6 $
+ * $Source: enableclc.h $
+ * $Revision: version #5 $
  * $Author: Jorge Alberto Olvera Contreras, Luis Eduardo Archundia Picazzo $
- * $Date: 03/11/2017 $
+ * $Date: 30/10/2017 $
  */
 /*============================================================================*/
 /* DESCRIPTION :                                                              */
-/** \APP file for button control config.
-     
-    * Changed name of file in order to comply with naming convention
-      standards - 03/11/2017
-
+/** \HAL for clock enabling.
     
 */
 /*============================================================================*/
@@ -33,25 +29,24 @@
 /*============================================================================*/
 /*                    REUSE HISTORY - taken over from                         */
 /*============================================================================*/
-/*  AUTHOR             |    VERSION    |            DESCRIPTION               */
+/*  AUTHOR             |      VERSION       |        DESCRIPTION              */
 /*----------------------------------------------------------------------------*/
-/*  Luis Archundia     |       5       |  APP file for button control config. */
-/*  Jorge Olvera       |       5       |  APP file for button control config. */
-/*  Luis Archundia     |       6       |  File name modified to comply with   */
-/*	Jorge Olvera	   |	   7       |  naming convention standards.        */
-/*   Olvera Jorge      |       8       | File name modified to comply with */
+/*  Luis Archundia     |         5          |    HAL file for clock enabling  */
+/*  Jorge Olvera       |         5          |    HAL file for clock enabling  */
 /*============================================================================*/
 /*                               OBJECT HISTORY                               */
 /*============================================================================*/
 /*
- * $Log: app_buttonscontrol.h  $
+ * $Log: enableclc.h  $
   ============================================================================*/
-#ifndef BUTTONSCONTROL_H
-#define BUTTONSCONTROL_H
+#ifndef ENABLECLC_H
+#define ENABLECLC_H
 
 /* Includes */
 /*============================================================================*/
-#include "HAL/hal_buttons.h"
+#include "MAL/mal_clocks.h"
+/* Defines */
+/*============================================================================*/
 
 /* Constants and types */
 /*============================================================================*/
@@ -64,10 +59,6 @@
 /* Exported functions prototypes */
 /*============================================================================*/
 
-T_UBYTE bc_T_UBYTE_statusButt_Up();
-T_UBYTE bc_T_UBYTE_statusButt_Down();
-T_UBYTE bc_T_UBYTE_statusButt_AntiP();
-//void bc_void_clearFlag_AntiPinch();
-
+void enableclc_vod_init_ClocksandModes(void);
 
 #endif  /* Notice: the file ends with a blank new line to avoid compiler warnings */

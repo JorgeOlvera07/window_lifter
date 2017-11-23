@@ -122,7 +122,7 @@ void ip_void_ButtonsInit (void){
 
 buttons_void_config_Buttons_Port(Button_PTC,PORTC,DOWN_Button,0x00000110);
 buttons_void_config_Buttons_Port(Button_PTC,PORTC,UP_Button,0x00000110);
-buttons_void_config_Buttons_Port(PTE,PORTE,PTE1,0x10C0110);
+buttons_void_config_Buttons_Port(PTE,PORTE,PTE1,0x00000110);
 
 }
 
