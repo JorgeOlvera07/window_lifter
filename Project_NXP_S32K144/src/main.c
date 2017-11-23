@@ -57,8 +57,6 @@ int main(void) {
 
 
 
-
-
 void MachineState(){
 static unsigned char state = 0;
 
@@ -96,12 +94,12 @@ case 1:
 
 	/* Conditions */
 
-	if(bc_T_UBYTE_statusButt_Up()||bc_T_UBYTE_statusButt_Down()){ /* Condiciones para permanecer en state 1  */
+	if(bc_T_UBYTE_statusButt_Up()||bc_T_UBYTE_statusButt_Down()||bc_T_UBYTE_statusButt_AntiP()){ /* Condiciones para permanecer en state 1  */
 		/* Acciones para permanecer en state 1 */
 		state=1;
 	}
 
-	if((bc_T_UBYTE_statusButt_Up()==0)&&(bc_T_UBYTE_statusButt_Down()==0)){ /* Condiciones de la transicion state 1 -0 */
+	if((bc_T_UBYTE_statusButt_Up()==0)&&(bc_T_UBYTE_statusButt_Down()==0)&&(bc_T_UBYTE_statusButt_AntiP()==0)){ /* Condiciones de la transicion state 1 -0 */
 		/* Acciones de la transicion state 1 - 0 */
 		state=0;
 		rs_Fg.bi1_flagUp=1;
@@ -241,8 +239,6 @@ case 4:
 		rs_Fg.bi1_flagUp=0;
 		ruw_lpit0_ch0_counter1ms=0;
 	}
-
-
 
 
 	break;
