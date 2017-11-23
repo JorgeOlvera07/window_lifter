@@ -50,8 +50,13 @@ int main(void) {
 
  for (;;) {
 	 MachineState();
+
  }
 }
+
+
+
+
 
 
 void MachineState(){
@@ -89,7 +94,6 @@ case 1:
 	ic_void_offIndicator_Up();
 	ic_void_offIndicator_Down();
 
-
 	/* Conditions */
 
 	if(bc_T_UBYTE_statusButt_Up()||bc_T_UBYTE_statusButt_Down()){ /* Condiciones para permanecer en state 1  */
@@ -97,19 +101,26 @@ case 1:
 		state=1;
 	}
 
-	if((ruw_lpit0_ch0_counter1ms>=_10ms)&&(bc_T_UBYTE_statusButt_Up())){ /* Condiciones de la transicion state 1 - 2 */
-		/* Acciones de la transicion state 1 - 2 */
-		state=2;
+	if((bc_T_UBYTE_statusButt_Up()==0)&&(bc_T_UBYTE_statusButt_Down()==0)){ /* Condiciones de la transicion state 1 -0 */
+		/* Acciones de la transicion state 1 - 0 */
+		state=0;
 		rs_Fg.bi1_flagUp=1;
 	}
 
-	if((ruw_lpit0_ch0_counter1ms>=_10ms)&&(bc_T_UBYTE_statusButt_Down())){ /* Condiciones de la transicion state 1 - 2 */
-		/* Acciones de la transicion state 1 - 2 */
-		state=2;
+
+	if((ruw_lpit0_ch0_counter1ms>9)&&(bc_T_UBYTE_statusButt_Up())){ /* Condiciones de la transicion state 1 -3 */
+		/* Acciones de la transicion state 1 - 3 */
+		state=3;
+		rs_Fg.bi1_flagUp=1;
+	}
+
+	if((ruw_lpit0_ch0_counter1ms>9)&&(bc_T_UBYTE_statusButt_Down())){ /* Condiciones de la transicion state 1 - 3 */
+		/* Acciones de la transicion state 1 - 3 */
+		state=3;
 		rs_Fg.bi1_flagDown=1;
 	}
 
-	if((ruw_lpit0_ch0_counter1ms>=_10ms)&&(bc_T_UBYTE_statusButt_AntiP())){ /* Condiciones de la transicion state 1 - 6 */
+	if((ruw_lpit0_ch0_counter1ms>9)&&(bc_T_UBYTE_statusButt_AntiP())){ /* Condiciones de la transicion state 1 - 6 */
 		/* Acciones de la transicion state 1 - 6 */
 		state=6;
 		rs_Fg.bi1_FlagAntipinch=1;
@@ -121,37 +132,18 @@ case 1:
 	break;
 /*============================================================================================================================*/
 
-/*****************************************************    S T A T E      2   **************************************************/
-/*============================================================================================================================*/
-case 2:
-	/* Acciones del estado 2 */
-	if(rs_Fg.bi1_flagDown){ ic_void_onIndicator_Down();}
-	if(rs_Fg.bi1_flagUp){ ic_void_onIndicator_Up();}
-
-	/* Conditions */
-
-	if((bc_T_UBYTE_statusButt_Up()==0) && (bc_T_UBYTE_statusButt_Down()==0)){ /* Condiciones para permanecer en state 2  */
-		/* Acciones para permanecer en state 2 */
-		state=2;
-	}
-
-	if(bc_T_UBYTE_statusButt_Up()||bc_T_UBYTE_statusButt_Down()){ /* Condiciones de la transicion state 2 - 3 */
-		/* Acciones de la transicion state 2 - 3 */
-		state=3;
-	}
-
-	break;
-/*============================================================================================================================*/
 
 /*****************************************************    S T A T E      3   **************************************************/
 /*============================================================================================================================*/
 case 3:
 	/* Acciones del estado 3 */
+	if(rs_Fg.bi1_flagDown){ ic_void_onIndicator_Down();}
+	if(rs_Fg.bi1_flagUp){ ic_void_onIndicator_Up();}
 
 	/* Conditions */
 	if(rs_Fg.bi1_flagUp){
 
-		if(bc_T_UBYTE_statusButt_Up()&&(ruw_lpit0_ch0_counter1ms>_500ms)){ /* Condiciones de la transicion state 3 - 5 */
+		if(bc_T_UBYTE_statusButt_Up()&&(ruw_lpit0_ch0_counter1ms>=_500ms)){ /* Condiciones de la transicion state 3 - 5 */
 			/* Acciones de la transicion state 3 - 5 */
 			state=5;
 			rs_Fg.bi1_flagSemiautomaticUp=1;
@@ -169,7 +161,7 @@ case 3:
 
 	if(rs_Fg.bi1_flagDown){
 
-		if(bc_T_UBYTE_statusButt_Down()&&(ruw_lpit0_ch0_counter1ms>_500ms)){ /* Condiciones de la transicion state 3 - 5 */
+		if(bc_T_UBYTE_statusButt_Down()&&(ruw_lpit0_ch0_counter1ms>=_500ms)){ /* Condiciones de la transicion state 3 - 5 */
 			/* Acciones de la transicion state 3 - 5 */
 			state=5;
 			rs_Fg.bi1_flagSemiautomaticDown=1;
@@ -313,8 +305,8 @@ case 5:
 		state=0;
 		rs_Fg.bi1_flagSemiautomaticDown=0;
 		rs_Fg.bi1_flagDown=0;
-	}
 
+	}
 
 	if((rs_Fg.bi1_flagUp)&&bc_T_UBYTE_statusButt_AntiP()){ /* Condiciones de la transicion state 5 - 1 */
 		/* Acciones de la transicion state 5 - 1 */
