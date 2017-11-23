@@ -50,13 +50,8 @@ int main(void) {
 
  for (;;) {
 	 MachineState();
-
  }
 }
-
-
-
-
 
 
 void MachineState(){
@@ -93,6 +88,7 @@ case 1:
 	/* Acciones del estado 1 */
 	ic_void_offIndicator_Up();
 	ic_void_offIndicator_Down();
+
 
 	/* Conditions */
 
@@ -317,8 +313,8 @@ case 5:
 		state=0;
 		rs_Fg.bi1_flagSemiautomaticDown=0;
 		rs_Fg.bi1_flagDown=0;
-
 	}
+
 
 	if((rs_Fg.bi1_flagUp)&&bc_T_UBYTE_statusButt_AntiP()){ /* Condiciones de la transicion state 5 - 1 */
 		/* Acciones de la transicion state 5 - 1 */
