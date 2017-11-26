@@ -89,10 +89,11 @@ T_UBYTE buttons_T_UBYTE_get_Button_Value(S_GPIO_Type* PT,T_UWORD numbit){
 
 }
 
+/*
 void buttons_void_clearFlag_antipinch(S_PORT_Type * pPORT,T_UWORD mask){
 	gpio_void_clearFlag_interrPin(pPORT,mask );
 }
-
+*/
 
 
  /* Notice: the file ends with a blank new line to avoid compiler warnings */

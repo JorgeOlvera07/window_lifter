@@ -63,9 +63,11 @@
 
 /* Exported functions prototypes */
 /*============================================================================*/
+
 T_UBYTE bc_T_UBYTE_statusButt_Up();
 T_UBYTE bc_T_UBYTE_statusButt_Down();
-void bc_void_clearFlag_AntiPinch();
+T_UBYTE bc_T_UBYTE_statusButt_AntiP();
+//void bc_void_clearFlag_AntiPinch();
 
 
 #endif  /* Notice: the file ends with a blank new line to avoid compiler warnings */

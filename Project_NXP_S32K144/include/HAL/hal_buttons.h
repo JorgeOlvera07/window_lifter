@@ -51,6 +51,7 @@
 /*============================================================================*/
 #define UP_Button PTC12
 #define DOWN_Button PTC13
+#define ANTIPINCH_BUTTON 1
 #define Button_PTC PTC
 
 /* Constants and types */

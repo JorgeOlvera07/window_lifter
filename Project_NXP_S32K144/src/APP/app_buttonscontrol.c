@@ -88,8 +88,15 @@ T_UBYTE bc_T_UBYTE_statusButt_Down(){
 
 }
 
+/*
 void bc_void_clearFlag_AntiPinch(){
 	buttons_void_clearFlag_antipinch(PORTE,PORT_ISFR_ISF_MASK);
 }
+*/
+
+T_UBYTE bc_T_UBYTE_statusButt_AntiP(){
+	return (buttons_T_UBYTE_get_Button_Value(PTE,ANTIPINCH_BUTTON ));
+}
+
 
  /* Notice: the file ends with a blank new line to avoid compiler warnings */
