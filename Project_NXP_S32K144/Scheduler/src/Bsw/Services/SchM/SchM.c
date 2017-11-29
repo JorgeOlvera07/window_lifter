@@ -100,6 +100,8 @@ void SchM_OsTick( void )
 				if(FlagsScheduler.FlagTaskState == 1){		//Review if there is any Task in Running or Start State before activating other task
 					FlagsScheduler.FlagOverLoad = 1;		//Set the OverLoad Flag
 					TurnOnOverloadPin(); 					 //TurnOn the OVERLOADPIN
+					SchM_SchedulerStatus.SchM_SchedulerState = SCHM_OVERLOAD;
+
 				}
 					SchM_TaskControlBlock[LocTaskIdx].SchM_TaskState=SCHM_TASK_STATE_READY;
 					FlagsScheduler.FlagTaskState = 1;		//Set the Flag that indicates the activation of a Task
@@ -157,16 +159,18 @@ void SchM_Start( void )
 {
 	LPIT0_Start();
 	SchM_Background();
+	SchM_SchedulerStatus.SchM_SchedulerState=SCHM_IDLE;
 }
 
 
 void SchM_Stop( void )
 {
 	LPIT0_Stop();
+	SchM_SchedulerStatus.SchM_SchedulerState=SCHM_HALTED;
 }
 
 
-TurnOnOverloadPin(void){
+void TurnOnOverloadPin(void){
 	Dio_PortSetPin(PORTCH_E,PINOVERLOAD);
 }
 

@@ -80,8 +80,7 @@
 
 void windowlifter_void_MefWindowLifter(T_UWORD *lpuw_CounterTime1ms){
 
-	static T_UBYTE rub_State = 0;
-
+	static T_UBYTE rub_State=0;
 	switch(rub_State){
 
 		/*****************************************************  WAIT FOR A PULSE    **************************************************/
@@ -127,9 +126,13 @@ void windowlifter_void_MefWindowLifter(T_UWORD *lpuw_CounterTime1ms){
 
 
 			if(((*lpuw_CounterTime1ms)>9)&&(bc_T_UBYTE_statusButt_Up())){ /* Condiciones de la transicion state VALIDATE A PULSE - CHOOSE TYPE WORK */
-				/* Acciones de la transicion state VALIDATE A PULSE - CHOOSE TYPE WORK */
+				/* transition VALIDATE A PULSE - CHOOSE TYPE WORK */
+
+
 				rub_State=CHOOSE_TYPE_WORK;
 				rs_Fg.bi1_flagUp=1;
+
+
 			}
 
 			if(((*lpuw_CounterTime1ms)>9)&&(bc_T_UBYTE_statusButt_Down())){ /* Condiciones de la transicion state VALIDATE A PULSE - CHOOSE TYPE WORK */
@@ -162,17 +165,22 @@ void windowlifter_void_MefWindowLifter(T_UWORD *lpuw_CounterTime1ms){
 			if(rs_Fg.bi1_flagUp){
 
 				if(bc_T_UBYTE_statusButt_Up()&&((*lpuw_CounterTime1ms)>=_500ms)){ /* Condiciones de la transicion CHOOSE TYPE WORK - SEMIAUTOMATIC WORK */
-					/* Acciones de la transicion CHOOSE TYPE WORK - SEMIAUTOMATIC WORK */
+					/* Transition CHOOSE TYPE WORK - SEMIAUTOMATIC WORK */
+
 					rub_State=SEMIAUTOMATIC_WORK;
 					rs_Fg.bi1_flagSemiautomaticUp=1;
 					*lpuw_CounterTime1ms=0;
+
+
 				}
 
 				if((bc_T_UBYTE_statusButt_Up()==0)&&((*lpuw_CounterTime1ms)<_500ms)){ /* Condiciones de la transicion CHOOSE TYPE WORK - AUTOMATIC WORK */
 					/* Acciones de la transicion CHOOSE TYPE WORK - AUTOMATIC WORK */
+
 					rub_State=AUTOMATIC_WORK;
 					rs_Fg.bi1_flagAutomaticUp=1;
 					*lpuw_CounterTime1ms=0;
+
 				}
 
 			}
@@ -207,7 +215,10 @@ void windowlifter_void_MefWindowLifter(T_UWORD *lpuw_CounterTime1ms){
 			}
 
 			if(rs_Fg.bi1_flagAutomaticUp){
+
+
 				wc_WindowUp(lpuw_CounterTime1ms);
+
 			}
 
 			/* Conditions */
@@ -263,9 +274,11 @@ void windowlifter_void_MefWindowLifter(T_UWORD *lpuw_CounterTime1ms){
 			}
 
 			if(rs_Fg.bi1_flagSemiautomaticUp){
+
 					if(bc_T_UBYTE_statusButt_Up()){
 						wc_WindowUp(lpuw_CounterTime1ms);
-					}
+						}
+
 
 			}
 

@@ -146,9 +146,12 @@ void wc_WindowUp(T_UWORD *lpub_Time){
 
 	if(rub_WindowLevel<10){
 		if((*lpub_Time)>=400){
+
 			rub_WindowLevel++;
 			wc_void_ControlWindowUp(&rub_WindowLevel);
 			(*lpub_Time)=0;
+
+
 		}
 
 	}

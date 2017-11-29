@@ -66,7 +66,7 @@
  void SchM_1MS_Task  ( ){
 	 ruw_CounterTime1ms++;
 
-	 Dio_PortTooglePin(PORTCH_D, TASK_1MS);
+	// Dio_PortTooglePin(PORTCH_D, TASK_1MS);
 	 windowlifter_void_MefWindowLifter(&ruw_CounterTime1ms);
 
  }
@@ -78,7 +78,7 @@
 {
 
 
-	Dio_PortTooglePin(PORTCH_D, TASK_2MS);
+	//Dio_PortTooglePin(PORTCH_D, TASK_2MS);
 
 }
 

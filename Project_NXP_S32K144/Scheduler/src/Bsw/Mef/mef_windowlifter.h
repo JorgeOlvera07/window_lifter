@@ -131,6 +131,7 @@ typedef struct {
 S_Structflags rs_Fg;
 
 
+
 /* Exported functions prototypes */
 /*============================================================================*/
 void windowlifter_void_MefWindowLifter(T_UWORD *lpuw_CounterTime1ms);
